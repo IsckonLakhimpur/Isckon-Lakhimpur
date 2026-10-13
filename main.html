@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISKCON Lakhimpur | Official Temple Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --saffron:#FF9933;
+  --deep-saffron:#E67300;
+  --maroon:#7B1E1E;
+  --gold:#FFD700;
+  --cream:#FFF8E7;
+  --dark:#2B1810;
+  --green:#1a7a3e;
+  --blue:#1e3a8a;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:var(--cream);color:var(--dark);line-height:1.6;overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,var(--maroon) 0%,var(--deep-saffron) 100%);
+  color:#fff;padding:15px 20px;position:sticky;top:0;z-index:1000;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+.header-wrap{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.logo-block{display:flex;align-items:center;gap:15px;}
+.emblem{width:65px;height:65px;flex-shrink:0;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+.site-title h1{font-size:1.6rem;letter-spacing:1px;line-height:1.1;}
+.site-title p{font-size:0.75rem;opacity:0.9;letter-spacing:2px;text-transform:uppercase;}
+nav{display:flex;gap:8px;flex-wrap:wrap;}
+nav button{
+  background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);
+  padding:8px 16px;border-radius:25px;cursor:pointer;font-size:0.85rem;
+  transition:all 0.3s;font-weight:500;
+}
+nav button:hover,nav button.active{background:var(--gold);color:var(--maroon);border-color:var(--gold);transform:translateY(-2px);}
+
+/* HERO */
+.hero{
+  background:linear-gradient(rgba(43,24,16,0.75),rgba(123,30,30,0.75)),url('https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=1600') center/cover;
+  color:#fff;padding:80px 20px;text-align:center;position:relative;
+}
+.hero h2{font-size:2.8rem;margin-bottom:15px;text-shadow:2px 2px 8px rgba(0,0,0,0.6);}
+.hero p{font-size:1.15rem;max-width:800px;margin:0 auto 25px;opacity:0.95;}
+.hero-btns{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;}
+.btn{
+  padding:12px 28px;border-radius:30px;border:none;cursor:pointer;
+  font-weight:600;font-size:0.95rem;transition:all 0.3s;text-decoration:none;display:inline-block;
+}
+.btn-primary{background:var(--saffron);color:#fff;box-shadow:0 4px 15px rgba(255,153,51,0.5);}
+.btn-primary:hover{background:var(--gold);color:var(--maroon);transform:translateY(-3px);}
+.btn-outline{background:transparent;color:#fff;border:2px solid #fff;}
+.btn-outline:hover{background:#fff;color:var(--maroon);}
+
+/* MAIN CONTAINER */
+.container{max-width:1400px;margin:0 auto;padding:40px 20px;}
+.section-title{
+  text-align:center;margin-bottom:40px;
+}
+.section-title h2{font-size:2.2rem;color:var(--maroon);position:relative;display:inline-block;padding-bottom:12px;}
+.section-title h2::after{
+  content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:80px;height:4px;background:linear-gradient(90deg,var(--saffron),var(--gold));border-radius:2px;
+}
+.section-title p{color:#666;margin-top:10px;font-size:1rem;}
+
+/* CARDS */
+.grid{display:grid;gap:25px;}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+.card{
+  background:#fff;border-radius:16px;padding:25px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:all 0.3s;
+  border-top:4px solid var(--saffron);
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.15);}
+.card-icon{font-size:2.5rem;margin-bottom:12px;}
+.card h3{color:var(--maroon);margin-bottom:10px;font-size:1.3rem;}
+.card p{color:#666;font-size:0.9rem;}
+
+/* SLoka Card */
+.sloka-card{
+  background:linear-gradient(135deg,#fff9e6,#ffe8cc);
+  border:2px solid var(--gold);border-radius:20px;padding:35px;
+  text-align:center;position:relative;margin-bottom:30px;
+}
+.sloka-sanskrit{font-size:1.5rem;color:var(--maroon);margin-bottom:20px;font-weight:600;line-height:1.8;}
+.sloka-translation{font-size:1.05rem;color:#555;font-style:italic;margin-bottom:15px;}
+.sloka-ref{color:var(--deep-saffron);font-weight:600;font-size:0.95rem;}
+.audio-btn{
+  background:var(--saffron);color:#fff;border:none;border-radius:50%;
+  width:50px;height:50px;font-size:1.3rem;cursor:pointer;margin-top:15px;
+  transition:all 0.3s;
+}
+.audio-btn:hover{background:var(--maroon);transform:scale(1.1);}
+
+/* JAPA MALA */
+.japa-wrap{text-align:center;padding:30px;}
+.mala-circle{
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,var(--saffron),var(--deep-saffron));
+  color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  margin:20px auto;cursor:pointer;user-select:none;
+  box-shadow:0 8px 30px rgba(230,115,0,0.4),inset 0 -5px 15px rgba(0,0,0,0.2);
+  transition:all 0.15s;border:6px solid var(--gold);
+}
+.mala-circle:active{transform:scale(0.95);}
+.mala-count{font-size:4rem;font-weight:700;line-height:1;font-family:'Playfair Display',serif;}
+.mala-label{font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;}
+.rounds-info{margin-top:20px;font-size:1.1rem;color:var(--maroon);font-weight:600;}
+.rounds-info span{color:var(--deep-saffron);font-size:1.4rem;}
+
+/* QUIZ */
+.quiz-box{background:#fff;border-radius:16px;padding:30px;box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+.quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
+.timer{background:var(--maroon);color:#fff;padding:8px 18px;border-radius:25px;font-weight:600;}
+.progress-bar{height:8px;background:#eee;border-radius:4px;margin-bottom:25px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--saffron),var(--gold));transition:width 0.4s;}
+.question{font-size:1.2rem;color:var(--maroon);margin-bottom:20px;font-weight:600;}
+.options{display:grid;gap:12px;margin-bottom:20px;}
+.option{
+  padding:14px 20px;background:#f8f8f8;border:2px solid #e0e0e0;border-radius:12px;
+  cursor:pointer;transition:all 0.2s;font-size:0.95rem;
+}
+.option:hover{border-color:var(--saffron);background:#fff5e6;}
+.option.selected{border-color:var(--saffron);background:#fff5e6;}
+.option.correct{border-color:var(--green);background:#e6f7ec;color:var(--green);font-weight:600;}
+.option.wrong{border-color:#dc2626;background:#fee2e2;color:#dc2626;}
+.explanation{background:#fff8e6;padding:15px;border-radius:10px;border-left:4px solid var(--saffron);margin-bottom:15px;font-size:0.9rem;}
+
+/* QUIZ RESULT */
+.certificate{
+  background:linear-gradient(135deg,#fff9e6,#ffe8cc);
+  border:8px double var(--gold);border-radius:20px;padding:40px;text-align:center;
+  max-width:700px;margin:20px auto;
+}
+.certificate h2{color:var(--maroon);font-size:2rem;margin-bottom:10px;}
+.certificate .score{font-size:3rem;color:var(--deep-saffron);font-weight:700;margin:15px 0;}
+.certificate .name{font-size:1.5rem;color:var(--maroon);border-bottom:2px solid var(--gold);padding-bottom:5px;display:inline-block;margin:15px 0;}
+
+/* SEVA MODAL */
+.modal-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);
+  z-index:2000;align-items:center;justify-content:center;padding:20px;
+}
+.modal-overlay.active{display:flex;}
+.modal{
+  background:#fff;border-radius:20px;padding:30px;max-width:500px;width:100%;
+  max-height:90vh;overflow-y:auto;position:relative;
+}
+.modal-close{
+  position:absolute;top:15px;right:15px;background:var(--maroon);color:#fff;
+  border:none;width:35px;height:35px;border-radius:50%;cursor:pointer;font-size:1.1rem;
+}
+.form-group{margin-bottom:15px;}
+.form-group label{display:block;margin-bottom:5px;font-weight:500;color:var(--maroon);font-size:0.9rem;}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;padding:10px 14px;border:2px solid #e0e0e0;border-radius:10px;
+  font-size:0.9rem;font-family:inherit;transition:border 0.2s;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+  outline:none;border-color:var(--saffron);
+}
+
+/* ADMIN */
+.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:25px;border-bottom:2px solid #eee;padding-bottom:15px;}
+.admin-tabs button{
+  padding:10px 18px;background:#f0f0f0;border:none;border-radius:10px;
+  cursor:pointer;font-size:0.85rem;font-weight:500;transition:all 0.2s;
+}
+.admin-tabs button.active{background:var(--maroon);color:#fff;}
+.admin-panel{background:#fff;border-radius:16px;padding:30px;box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-bottom:30px;}
+.stat-card{
+  background:linear-gradient(135deg,var(--saffron),var(--deep-saffron));
+  color:#fff;padding:25px;border-radius:16px;text-align:center;
+  box-shadow:0 4px 15px rgba(230,115,0,0.3);
+}
+.stat-card .num{font-size:2.5rem;font-weight:700;font-family:'Playfair Display',serif;}
+.stat-card .lbl{font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;opacity:0.95;}
+.stat-card.green{background:linear-gradient(135deg,#22c55e,#16a34a);}
+.stat-card.blue{background:linear-gradient(135deg,#3b82f6,#1d4ed8);}
+.stat-card.purple{background:linear-gradient(135deg,#a855f7,#7c3aed);}
+.stat-card.red{background:linear-gradient(135deg,#ef4444,#b91c1c);}
+
+.data-table{width:100%;border-collapse:collapse;margin-top:15px;}
+.data-table th,.data-table td{padding:12px;text-align:left;border-bottom:1px solid #eee;font-size:0.9rem;}
+.data-table th{background:#fff8e6;color:var(--maroon);font-weight:600;}
+
+/* TOAST */
+.toast{
+  position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);
+  background:var(--maroon);color:#fff;padding:14px 28px;border-radius:30px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.3);z-index:5000;opacity:0;
+  transition:all 0.4s;font-weight:500;
+}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+
+/* AUDIO PLAYER BAR */
+.audio-bar{
+  position:fixed;bottom:0;left:0;right:0;background:var(--maroon);color:#fff;
+  padding:12px 20px;display:none;align-items:center;gap:15px;z-index:999;
+  box-shadow:0 -4px 20px rgba(0,0,0,0.3);
+}
+.audio-bar.active{display:flex;}
+.audio-bar .play-btn{
+  background:var(--gold);color:var(--maroon);border:none;width:45px;height:45px;
+  border-radius:50%;font-size:1.2rem;cursor:pointer;
+}
+.audio-bar .info{flex:1;}
+.audio-bar .info h4{font-size:1rem;margin-bottom:2px;}
+.audio-bar .info p{font-size:0.75rem;opacity:0.85;}
+.audio-bar .close-btn{background:transparent;color:#fff;border:none;font-size:1.4rem;cursor:pointer;}
+
+/* EVENT CARD */
+.event-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:all 0.3s;}
+.event-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,0.15);}
+.event-img{width:100%;height:180px;object-fit:cover;background:linear-gradient(135deg,var(--saffron),var(--maroon));}
+.event-body{padding:20px;}
+.event-date{background:var(--saffron);color:#fff;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;display:inline-block;margin-bottom:10px;}
+.event-card h3{color:var(--maroon);margin-bottom:8px;font-size:1.15rem;}
+.event-card p{color:#666;font-size:0.85rem;margin-bottom:5px;}
+
+/* MEDIA */
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:15px;}
+.media-item{border-radius:12px;overflow:hidden;position:relative;background:#000;aspect-ratio:1;}
+.media-item img,.media-item iframe{width:100%;height:100%;object-fit:cover;border:none;}
+.media-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.85));color:#fff;padding:15px 10px 8px;font-size:0.8rem;}
+
+/* FOOTER */
+footer{
+  background:linear-gradient(135deg,var(--maroon),var(--dark));
+  color:#fff;padding:50px 20px 20px;margin-top:60px;
+}
+.footer-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:35px;margin-bottom:30px;}
+.footer-col h3{color:var(--gold);margin-bottom:15px;font-size:1.2rem;}
+.footer-col p,.footer-col a{color:#ddd;font-size:0.9rem;text-decoration:none;display:block;margin-bottom:8px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--gold);}
+.footer-emblem{width:80px;height:80px;margin-bottom:15px;}
+.dev-credit{text-align:center;padding-top:25px;border-top:1px solid rgba(255,255,255,0.15);font-size:0.9rem;}
+.dev-credit .heart{color:var(--saffron);}
+.social-links{display:flex;gap:12px;margin-top:12px;}
+.social-links a{
+  width:38px;height:38px;background:rgba(255,255,255,0.15);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all 0.3s;
+}
+.social-links a:hover{background:var(--gold);color:var(--maroon);transform:translateY(-3px);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .site-title h1{font-size:1.1rem;}
+  .site-title p{font-size:0.6rem;}
+  .emblem{width:50px;height:50px;}
+  .hero h2{font-size:1.8rem;}
+  .hero p{font-size:0.95rem;}
+  .mala-circle{width:160px;height:160px;}
+  .mala-count{font-size:3rem;}
+  .section-title h2{font-size:1.6rem;}
+  nav button{padding:6px 12px;font-size:0.75rem;}
+}
+
+/* UTILITIES */
+.text-center{text-align:center;}
+.mt-20{margin-top:20px;}
+.mb-20{margin-bottom:20px;}
+.hidden{display:none!important;}
+.badge{padding:4px 10px;border-radius:20px;font-size:0.7rem;font-weight:600;text-transform:uppercase;}
+.badge-pub{background:#e6f7ec;color:var(--green);}
+.badge-draft{background:#fff3cd;color:#856404;}
+.btn-sm{padding:6px 12px;font-size:0.8rem;border-radius:8px;}
+.btn-danger{background:#dc2626;color:#fff;border:none;cursor:pointer;}
+.btn-success{background:var(--green);color:#fff;border:none;cursor:pointer;}
+.btn-warn{background:var(--saffron);color:#fff;border:none;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-wrap">
+    <div class="logo-block">
+      <!-- ISKCON Lotus + Tilak Emblem (SVG) -->
+      <svg class="emblem" id="headerEmblem" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="lg1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFD700"/>
+            <stop offset="100%" stop-color="#E67300"/>
+          </radialGradient>
+        </defs>
+        <circle cx="50" cy="50" r="48" fill="#FFF8E7" stroke="#7B1E1E" stroke-width="2"/>
+        <!-- Lotus petals -->
+        <g fill="url(#lg1)" stroke="#7B1E1E" stroke-width="0.8">
+          <ellipse cx="50" cy="30" rx="6" ry="14" opacity="0.9"/>
+          <ellipse cx="38" cy="34" rx="6" ry="13" transform="rotate(-25 38 34)" opacity="0.85"/>
+          <ellipse cx="62" cy="34" rx="6" ry="13" transform="rotate(25 62 34)" opacity="0.85"/>
+          <ellipse cx="28" cy="42" rx="5" ry="11" transform="rotate(-50 28 42)" opacity="0.8"/>
+          <ellipse cx="72" cy="42" rx="5" ry="11" transform="rotate(50 72 42)" opacity="0.8"/>
+          <ellipse cx="50" cy="58" rx="14" ry="7" opacity="0.95"/>
+        </g>
+        <!-- Tilak (U-shape) -->
+        <path d="M 40 50 Q 40 38 50 38 Q 60 38 60 50 L 60 68 L 55 68 L 55 50 Q 55 44 50 44 Q 45 44 45 50 L 45 68 L 40 68 Z" fill="#7B1E1E"/>
+        <circle cx="50" cy="52" r="2.5" fill="#7B1E1E"/>
+        <line x1="50" y1="40" x2="50" y2="70" stroke="#7B1E1E" stroke-width="1.2" opacity="0.6"/>
+      </svg>
+      <div class="site-title">
+        <h1 id="siteTitleDisplay">ISKCON Lakhimpur</h1>
+        <p>International Society for Krishna Consciousness</p>
+      </div>
+    </div>
+    <nav id="mainNav">
+      <button class="active" onclick="showPage('home',this)">🏠 Home</button>
+      <button onclick="showPage('about',this)">📖 About</button>
+      <button onclick="showPage('events',this)">🎉 Events</button>
+      <button onclick="showPage('media',this)">📸 Gallery</button>
+      <button onclick="showPage('quiz',this)">🧠 Quiz</button>
+      <button onclick="showPage('japa',this)">📿 Japa</button>
+      <button onclick="openSeva()">🙏 Seva</button>
+      <button onclick="showPage('leaderboard',this)">🏆 Toppers</button>
+      <button onclick="showPage('admin',this)">⚙️ Admin</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page">
+  <section class="hero">
+    <h2 id="heroTitle">Welcome to ISKCON Lakhimpur</h2>
+    <p id="heroSubtitle">Experience the divine bliss of Krishna Consciousness through devotional service, kirtan, and spiritual wisdom.</p>
+    <div class="hero-btns">
+      <button class="btn btn-primary" onclick="openSeva()">🙏 Offer Seva</button>
+      <button class="btn btn-outline" onclick="showPage('quiz')">🧠 Take Quiz</button>
+      <button class="btn btn-outline" onclick="startKirtan()">🎵 Play Kirtan</button>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Daily Sloka -->
+    <div class="section-title">
+      <h2>📜 Daily Bhagavad Gita Verse</h2>
+      <p>Divine wisdom for your day</p>
+    </div>
+    <div class="sloka-card" id="dailySloka">
+      <div class="sloka-sanskrit">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥</div>
+      <div class="sloka-translation">"You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions."</div>
+      <div class="sloka-ref">— Bhagavad Gita 2.47</div>
+      <button class="audio-btn" onclick="playSlokaAudio()">🔊</button>
+    </div>
+
+    <!-- Quick Features -->
+    <div class="section-title mt-20">
+      <h2>✨ Spiritual Features</h2>
+    </div>
+    <div class="grid grid-4">
+      <div class="card text-center" onclick="showPage('japa')" style="cursor:pointer">
+        <div class="card-icon">📿</div>
+        <h3>Japa Mala</h3>
+        <p>Digital 108-bead counter with vibration feedback</p>
+      </div>
+      <div class="card text-center" onclick="showPage('quiz')" style="cursor:pointer">
+        <div class="card-icon">🧠</div>
+        <h3>Gita Quiz</h3>
+        <p>Test your spiritual knowledge & earn certificates</p>
+      </div>
+      <div class="card text-center" onclick="openSeva()" style="cursor:pointer">
+        <div class="card-icon">🙏</div>
+        <h3>Online Seva</h3>
+        <p>Anna Daan, Nitya Seva & Deity Seva via UPI</p>
+      </div>
+      <div class="card text-center" onclick="startKirtan()" style="cursor:pointer">
+        <div class="card-icon">🎵</div>
+        <h3>Kirtan Player</h3>
+        <p>Hare Krishna Mahamantra streaming</p>
+      </div>
+    </div>
+
+    <!-- Upcoming Events -->
+    <div class="section-title mt-20" style="margin-top:60px">
+      <h2>🎉 Upcoming Festivals</h2>
+    </div>
+    <div class="grid grid-3" id="homeEvents"></div>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="page-about" class="page hidden">
+  <div class="container">
+    <div class="section-title"><h2>📖 About ISKCON Lakhimpur</h2></div>
+    <div class="card">
+      <h3>Our Mission</h3>
+      <p>ISKCON Lakhimpur is a spiritual community dedicated to spreading the timeless wisdom of Bhagavad Gita and Srimad Bhagavatam. We welcome everyone to experience the joy of Krishna Consciousness through kirtan, prasadam, and devotional service.</p>
+    </div>
+    <div class="grid grid-2 mt-20">
+      <div class="card"><h3>🕉️ Daily Programs</h3><p>Mangal Aarti (4:30 AM), Bhagavatam Class (7:30 AM), Evening Aarti (7:00 PM), and nightly kirtan.</p></div>
+      <div class="card"><h3>🍛 Free Prasadam</h3><p>Daily annadaan serving 200+ devotees. Join us for sanctified vegetarian meals.</p></div>
+      <div class="card"><h3>📚 Gita Study</h3><p>Weekly Bhagavad Gita study circles for youth and adults.</p></div>
+      <div class="card"><h3>🎨 Cultural Events</h3><p>Janmashtami, Ratha Yatra, Radhashtami, and other grand festivals.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- EVENTS PAGE -->
+<div id="page-events" class="page hidden">
+  <div class="container">
+    <div class="section-title"><h2>🎉 Temple Festivals & Events</h2></div>
+    <h3 style="color:var(--maroon);margin-bottom:20px">📅 Upcoming Events</h3>
+    <div class="grid grid-3" id="upcomingEvents"></div>
+    <h3 style="color:var(--maroon);margin:40px 0 20px">📜 Past Events</h3>
+    <div class="grid grid-3" id="pastEvents"></div>
+  </div>
+</div>
+
+<!-- MEDIA PAGE -->
+<div id="page-media" class="page hidden">
+  <div class="container">
+    <div class="section-title"><h2>📸 Photo & Video Gallery</h2></div>
+    <div class="media-grid" id="publicMedia"></div>
+  </div>
+</div>
+
+<!-- QUIZ PAGE -->
+<div id="page-quiz" class="page hidden">
+  <div class="container">
+    <div class="section-title"><h2>🧠 Bhagavad Gita Quiz</h2></div>
+    <div id="quizStart">
+      <div class="card text-center">
+        <div class="card-icon">🏆</div>
+        <h3>Test Your Spiritual Knowledge</h3>
+        <p class="mb-20">Answer questions about Bhagavad Gita and win a Spiritual Completion Certificate!</p>
+        <div class="form-group" style="max-width:400px;margin:0 auto 15px">
+          <input type="text" id="quizName" placeholder="Enter your full name" required>
+        </div>
+        <div id="quizList"></div>
+      </div>
+    </div>
+    <div id="quizPlay" class="hidden">
+      <div class="quiz-box">
+        <div class="quiz-header">
+          <div><strong id="qCounter">Question 1 of 10</strong></div>
+          <div class="timer" id="timer">⏱ 30s</div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:10%"></div></div>
+        <div class="question" id="qText"></div>
+        <div class="options" id="qOptions"></div>
+        <div id="qExplanation" class="explanation hidden"></div>
+        <div class="text-center mt-20">
+          <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next →</button>
+        </div>
+      </div>
+    </div>
+    <div id="quizResult" class="hidden"></div>
+  </div>
+</div>
+
+<!-- JAPA PAGE -->
+<div id="page-japa" class="page hidden">
+  <div class="container">
+    <div class="section-title"><h2>📿 Digital Japa Mala Counter</h2><p>Tap the circle to count each bead</p></div>
+    <div class="japa-wrap">
+      <div class="mala-circle" id="malaCircle" onclick="tapBead()">
+        <div class="mala-count" id="beadCount">0</div>
+        <div class="mala-label">of 108</div>
+      </div>
+      <div class="rounds-info">Rounds Completed: <span id="roundsCount">0</span></div>
+      <div class="mt-20">
+        <button class="btn btn-outline" style="color:var(--maroon);border-color:var(--maroon)" onclick="resetMala()">🔄 Reset Mala</button>
+      </div>
+      <p class="mt-20" style="color:#666;font-size:0.9rem">🙏 Hare Krishna Hare Krishna Krishna Krishna Hare Hare<br>Hare Rama Hare Rama Rama Rama Hare Hare</p>
+    </div>
+  </div>
+</div>
+
+<!-- LEADERBOARD -->
+<div id="page-leaderboard" class="page hidden">
+  <div class="container">
+    <div class="section-title"><h2>🏆 Quiz Toppers</h2><p>Our brightest spiritual scholars</p></div>
+    <div class="card">
+      <table class="data-table">
+        <thead><tr><th>Rank</th><th>Name</th><th>Score</th><th>Date</th></tr></thead>
+        <tbody id="leaderboardBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN PAGE -->
+<div id="page-admin" class="page hidden">
+  <div class="container">
+    <div class="section-title"><h2>⚙️ Admin Dashboard</h2></div>
+    <div id="adminLogin" class="card" style="max-width:400px;margin:0 auto">
+      <h3>🔐 Admin Login</h3>
+      <div class="form-group mt-20">
+        <label>Password</label>
+        <input type="password" id="adminPass" placeholder="Enter admin password">
+      </div>
+      <button class="btn btn-primary" style="width:100%" onclick="adminLogin()">Login</button>
+      <p class="mt-20" style="color:#999;font-size:0.8rem">Default: admin123</p>
+    </div>
+
+    <div id="adminContent" class="hidden">
+      <div class="admin-tabs">
+        <button class="active" onclick="switchAdminTab('overview',this)">📊 Overview</button>
+        <button onclick="switchAdminTab('settings',this)">⚙️ Settings</button>
+        <button onclick="switchAdminTab('media',this)">📸 Media</button>
+        <button onclick="switchAdminTab('events',this)">🎉 Events</button>
+        <button onclick="switchAdminTab('quiz',this)">🧠 Quiz</button>
+        <button onclick="switchAdminTab('sloka',this)">📜 Slokas</button>
+        <button onclick="switchAdminTab('seva',this)">🙏 Seva/UPI</button>
+      </div>
+
+      <!-- Overview -->
+      <div id="admin-overview" class="admin-panel">
+        <h3>📊 Live Statistics</h3>
+        <div class="stat-grid mt-20" id="statsGrid"></div>
+        <h3 class="mt-20">🏆 Recent Quiz Toppers</h3>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Score</th><th>Date</th></tr></thead>
+          <tbody id="adminToppers"></tbody>
+        </table>
+      </div>
+
+      <!-- Settings -->
+      <div id="admin-settings" class="admin-panel hidden">
+        <h3>⚙️ Website Settings</h3>
+        <div class="grid grid-2 mt-20">
+          <div class="form-group"><label>Site Title</label><input id="setTitle"></div>
+          <div class="form-group"><label>Phone/WhatsApp</label><input id="setPhone"></div>
+          <div class="form-group"><label>Email</label><input id="setEmail"></div>
+          <div class="form-group"><label>Address</label><input id="setAddress"></div>
+          <div class="form-group" style="grid-column:1/-1"><label>Hero Banner Title</label><input id="setHeroTitle"></div>
+          <div class="form-group" style="grid-column:1/-1"><label>Hero Subtitle</label><textarea id="setHeroSub" rows="2"></textarea></div>
+          <div class="form-group" style="grid-column:1/-1"><label>Emblem URL (optional - leave blank for default lotus)</label><input id="setEmblem" placeholder="https://..."></div>
+          <div class="form-group"><label>Admin Password</label><input id="setPass"></div>
+        </div>
+        <button class="btn btn-primary mt-20" onclick="saveSettings()">💾 Save Settings</button>
+      </div>
+
+      <!-- Media -->
+      <div id="admin-media" class="admin-panel hidden">
+        <h3>📸 Media Manager</h3>
+        <div class="card mt-20" style="background:#fff8e6">
+          <div class="grid grid-2">
+            <div class="form-group">
+              <label>Photo (Upload or URL)</label>
+              <input type="file" id="photoFile" accept="image/*" onchange="handlePhotoUpload(event)">
+              <input type="text" id="photoUrl" placeholder="Or paste image URL" style="margin-top:8px">
+            </div>
+            <div class="form-group">
+              <label>Caption</label>
+              <input id="photoCaption" placeholder="e.g., Janmashtami 2025">
+              <label style="margin-top:8px">Alt Text</label>
+              <input id="photoAlt" placeholder="Describe the image">
+            </div>
+          </div>
+          <button class="btn btn-success" onclick="addPhoto()">➕ Add Photo</button>
+        </div>
+
+        <div class="card mt-20" style="background:#e6f0ff">
+          <div class="grid grid-2">
+            <div class="form-group">
+              <label>YouTube Video URL</label>
+              <input id="videoUrl" placeholder="https://youtube.com/watch?v=...">
+            </div>
+            <div class="form-group">
+              <label>Caption</label>
+              <input id="videoCaption" placeholder="e.g., Evening Kirtan">
+            </div>
+          </div>
+          <button class="btn btn-success" onclick="addVideo()">➕ Add Video</button>
+        </div>
+
+        <h3 class="mt-20">All Media</h3>
+        <div id="adminMediaList" class="mt-20"></div>
+      </div>
+
+      <!-- Events -->
+      <div id="admin-events" class="admin-panel hidden">
+        <h3>🎉 Event Manager</h3>
+        <div class="card mt-20">
+          <div class="grid grid-2">
+            <div class="form-group"><label>Event Title</label><input id="evtTitle" placeholder="e.g., Janmashtami 2025"></div>
+            <div class="form-group"><label>Poster URL (optional)</label><input id="evtPoster" placeholder="https://..."></div>
+            <div class="form-group"><label>Start Date</label><input type="date" id="evtStart"></div>
+            <div class="form-group"><label>End Date</label><input type="date" id="evtEnd"></div>
+            <div class="form-group" style="grid-column:1/-1"><label>Location</label><input id="evtLocation" placeholder="ISKCON Lakhimpur Temple"></div>
+            <div class="form-group" style="grid-column:1/-1"><label>Description</label><textarea id="evtDesc" rows="2"></textarea></div>
+          </div>
+          <button class="btn btn-success" onclick="addEvent()">➕ Create Event</button>
+        </div>
+        <h3 class="mt-20">All Events</h3>
+        <div id="adminEventList" class="mt-20"></div>
+      </div>
+
+      <!-- Quiz -->
+      <div id="admin-quiz" class="admin-panel hidden">
+        <h3>🧠 Quiz Generator</h3>
+        <div class="card mt-20" style="background:#f0e6ff">
+          <h4>🤖 AI Quiz Generator (Gemini)</h4>
+          <p style="font-size:0.85rem;color:#666;margin:8px 0">Generate quiz questions using AI. Enter your Gemini API key below.</p>
+          <div class="form-group"><label>Gemini API Key</label><input type="password" id="geminiKey" placeholder="AIza..."></div>
+          <div class="form-group"><label>Topic</label><input id="aiTopic" placeholder="e.g., Bhagavad Gita Chapter 2"></div>
+          <div class="form-group"><label>Number of Questions</label><input type="number" id="aiCount" value="5" min="1" max="20"></div>
+          <button class="btn btn-primary" onclick="generateAIQuiz()">✨ Generate with AI</button>
+        </div>
+
+        <div class="card mt-20" style="background:#e6f7ec">
+          <h4>✍️ Manual Quiz Builder</h4>
+          <div class="form-group"><label>Quiz Title</label><input id="mqTitle" placeholder="e.g., Gita Chapter 2 Quiz"></div>
+          <div class="form-group"><label>Question</label><input id="mqQ" placeholder="Enter question"></div>
+          <div class="grid grid-2">
+            <div class="form-group"><label>Option A</label><input id="mqA"></div>
+            <div class="form-group"><label>Option B</label><input id="mqB"></div>
+            <div class="form-group"><label>Option C</label><input id="mqC"></div>
+            <div class="form-group"><label>Option D</label><input id="mqD"></div>
+          </div>
+          <div class="form-group"><label>Correct Answer</label>
+            <select id="mqCorrect"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select>
+          </div>
+          <div class="form-group"><label>Explanation</label><textarea id="mqExp" rows="2"></textarea></div>
+          <button class="btn btn-success" onclick="addManualQuestion()">➕ Add Question</button>
+        </div>
+
+        <h3 class="mt-20">Quiz Questions (<span id="qCount">0</span>)</h3>
+        <div id="adminQuizList" class="mt-20"></div>
+        <button class="btn btn-primary mt-20" onclick="publishQuiz()">🚀 Publish Quiz</button>
+      </div>
+
+      <!-- Sloka -->
+      <div id="admin-sloka" class="admin-panel hidden">
+        <h3>📜 Daily Sloka Manager</h3>
+        <div class="card mt-20">
+          <div class="form-group"><label>Sanskrit Text</label><textarea id="slSanskrit" rows="3"></textarea></div>
+          <div class="form-group"><label>Translation</label><textarea id="slTrans" rows="2"></textarea></div>
+          <div class="form-group"><label>Reference</label><input id="slRef" placeholder="e.g., BG 2.47"></div>
+          <button class="btn btn-success" onclick="addSloka()">➕ Add Sloka</button>
+        </div>
+        <div id="adminSlokaList" class="mt-20"></div>
+      </div>
+
+      <!-- Seva -->
+      <div id="admin-seva" class="admin-panel hidden">
+        <h3>🙏 Seva / UPI Settings</h3>
+        <div class="card mt-20">
+          <div class="form-group"><label>Bank Account Name</label><input id="sevaBank"></div>
+          <div class="form-group"><label>Account Number</label><input id="sevaAcc"></div>
+          <div class="form-group"><label>IFSC Code</label><input id="sevaIfsc"></div>
+          <div class="form-group"><label>UPI ID</label><input id="sevaUpi" placeholder="iskconlakhimpur@upi"></div>
+          <div class="form-group"><label>QR Code Image URL</label><input id="sevaQr" placeholder="https://..."></div>
+          <button class="btn btn-primary mt-20" onclick="saveSeva()">💾 Save Seva Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEVA MODAL -->
+<div class="modal-overlay" id="sevaModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeSeva()">✕</button>
+    <h2 style="color:var(--maroon);text-align:center">🙏 Online Seva</h2>
+    <p class="text-center" style="color:#666;font-size:0.9rem;margin-bottom:20px">Choose your seva offering</p>
+    <div id="sevaOptions"></div>
+    <div id="sevaDetails" class="hidden mt-20"></div>
+  </div>
+</div>
+
+<!-- AUDIO BAR -->
+<div class="audio-bar" id="audioBar">
+  <button class="play-btn" id="playBtn" onclick="togglePlay()">⏸</button>
+  <div class="info">
+    <h4 id="audioTitle">Hare Krishna Mahamantra</h4>
+    <p id="audioSub">Kirtan streaming • Live from ISKCON Lakhimpur</p>
+  </div>
+  <button class="close-btn" onclick="stopKirtan()">✕</button>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-col">
+      <svg class="footer-emblem" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="48" fill="#FFF8E7" stroke="#FFD700" stroke-width="2"/>
+        <g fill="#FF9933" stroke="#7B1E1E" stroke-width="0.8">
+          <ellipse cx="50" cy="30" rx="6" ry="14"/>
+          <ellipse cx="38" cy="34" rx="6" ry="13" transform="rotate(-25 38 34)"/>
+          <ellipse cx="62" cy="34" rx="6" ry="13" transform="rotate(25 62 34)"/>
+          <ellipse cx="28" cy="42" rx="5" ry="11" transform="rotate(-50 28 42)"/>
+          <ellipse cx="72" cy="42" rx="5" ry="11" transform="rotate(50 72 42)"/>
+          <ellipse cx="50" cy="58" rx="14" ry="7"/>
+        </g>
+        <path d="M 40 50 Q 40 38 50 38 Q 60 38 60 50 L 60 68 L 55 68 L 55 50 Q 55 44 50 44 Q 45 44 45 50 L 45 68 L 40 68 Z" fill="#7B1E1E"/>
+        <circle cx="50" cy="52" r="2.5" fill="#7B1E1E"/>
+      </svg>
+      <h3 id="footerTitle">ISKCON Lakhimpur</h3>
+      <p>Spreading the message of Lord Krishna and Bhagavad Gita for the welfare of all living beings.</p>
+    </div>
+    <div class="footer-col">
+      <h3>📞 Contact Us</h3>
+      <p id="footerPhone">📱 +91 9876543210</p>
+      <p id="footerEmail">✉️ info@iskconlakhimpur.org</p>
+      <p id="footerAddress">📍 ISKCON Temple, Lakhimpur, UP</p>
+    </div>
+    <div class="footer-col">
+      <h3>🔗 Quick Links</h3>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('events')">Events</a>
+      <a onclick="showPage('quiz')">Quiz</a>
+      <a onclick="openSeva()">Donate/Seva</a>
+      <a onclick="showPage('admin')">Admin Login</a>
+    </div>
+    <div class="footer-col">
+      <h3>🌐 Follow Us</h3>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank" title="Facebook">f</a>
+        <a href="https://instagram.com" target="_blank" title="Instagram">📷</a>
+        <a href="https://youtube.com" target="_blank" title="YouTube">▶</a>
+        <a href="https://wa.me/919876543210" target="_blank" title="WhatsApp">💬</a>
+      </div>
+      <p class="mt-20" style="font-size:0.8rem;opacity:0.7">Hare Krishna! 🙏</p>
+    </div>
+  </div>
+  <div class="dev-credit">
+    Made with <span class="heart">❤️</span> Devotion by <strong>Aditya Pandey</strong> • © 2025 ISKCON Lakhimpur. All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+/* ========== DATA STORE ========== */
+const DB = {
+  settings: {
+    title:'ISKCON Lakhimpur',
+    phone:'+91 9876543210',
+    email:'info@iskconlakhimpur.org',
+    address:'ISKCON Temple, Lakhimpur, UP',
+    heroTitle:'Welcome to ISKCON Lakhimpur',
+    heroSubtitle:'Experience the divine bliss of Krishna Consciousness through devotional service, kirtan, and spiritual wisdom.',
+    password:'admin123',
+    emblem:''
+  },
+  photos:[],
+  videos:[],
+  events:[],
+  quiz:[],
+  toppers:[],
+  slokas:[
+    {sanskrit:'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥',
+     translation:'"You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions."',
+     ref:'Bhagavad Gita 2.47'},
+    {sanskrit:'परित्राणाय साधूनां विनाशाय च दुष्कृताम्।<br>धर्मसंस्थापनार्थाय सम्भवामि युगे युगे॥',
+     translation:'"To deliver the pious and annihilate the miscreants, as well as to reestablish the principles of religion, I Myself appear, millennium after millennium."',
+     ref:'Bhagavad Gita 4.8'}
+  ],
+  seva:{
+    bank:'ISKCON Lakhimpur',
+    acc:'1234567890123',
+    ifsc:'SBIN0001234',
+    upi:'iskconlakhimpur@upi',
+    qr:''
+  }
+};
+
+/* Load from localStorage */
+try{
+  const saved = localStorage.getItem('iskcon_data');
+  if(saved){const p = JSON.parse(saved); Object.assign(DB, p);}
+}catch(e){console.log('Storage error',e);}
+
+function save(){
+  try{localStorage.setItem('iskcon_data', JSON.stringify(DB));}catch(e){}
+}
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+/* ========== PAGE NAVIGATION ========== */
+function showPage(page, btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+  const el = document.getElementById('page-'+page);
+  if(el) el.classList.remove('hidden');
+  if(btn){
+    document.querySelectorAll('#mainNav button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(page==='events') renderEvents();
+  if(page==='media') renderPublicMedia();
+  if(page==='leaderboard') renderLeaderboard();
+  if(page==='quiz') renderQuizList();
+}
+
+/* ========== SETTINGS APPLY ========== */
+function applySettings(){
+  const s = DB.settings;
+  document.getElementById('siteTitleDisplay').textContent = s.title;
+  document.getElementById('footerTitle').textContent = s.title;
+  document.getElementById('heroTitle').textContent = s.heroTitle;
+  document.getElementById('heroSubtitle').textContent = s.heroSubtitle;
+  document.getElementById('footerPhone').textContent = '📱 '+s.phone;
+  document.getElementById('footerEmail').textContent = '✉️ '+s.email;
+  document.getElementById('footerAddress').textContent = '📍 '+s.address;
+  if(s.emblem){
+    const emb = document.getElementById('headerEmblem');
+    const img = document.createElementNS('http://www.w3.org/2000/svg','image');
+    img.setAttribute('href', s.emblem);
+    img.setAttribute('width','100');img.setAttribute('height','100');
+    emb.innerHTML = '';emb.appendChild(img);
+  }
+  document.getElementById('setTitle').value = s.title;
+  document.getElementById('setPhone').value = s.phone;
+  document.getElementById('setEmail').value = s.email;
+  document.getElementById('setAddress').value = s.address;
+  document.getElementById('setHeroTitle').value = s.heroTitle;
+  document.getElementById('setHeroSub').value = s.heroSubtitle;
+  document.getElementById('setEmblem').value = s.emblem;
+  document.getElementById('setPass').value = s.password;
+}
+
+/* ========== SLOKA ROTATION ========== */
+let slokaIdx = 0;
+function renderSloka(){
+  if(!DB.slokas.length) return;
+  const s = DB.slokas[slokaIdx % DB.slokas.length];
+  document.getElementById('dailySloka').innerHTML = `
+    <div class="sloka-sanskrit">${s.sanskrit}</div>
+    <div class="sloka-translation">${s.translation}</div>
+    <div class="sloka-ref">— ${s.ref}</div>
+    <button class="audio-btn" onclick="playSlokaAudio()">🔊</button>
+  `;
+}
+setInterval(()=>{slokaIdx++;renderSloka();}, 15000);
+
+function playSlokaAudio(){
+  toast('🔊 Playing sloka audio...');
+}
+
+/* ========== EVENTS ========== */
+function renderEvents(){
+  const now = new Date().toISOString().split('T')[0];
+  const upcoming = DB.events.filter(e=>e.end >= now).sort((a,b)=>a.start.localeCompare(b.start));
+  const past = DB.events.filter(e=>e.end < now).sort((a,b)=>b.start.localeCompare(a.start));
+  document.getElementById('upcomingEvents').innerHTML = upcoming.length ? upcoming.map(eventCard).join('') : '<p class="text-center" style="grid-column:1/-1;color:#999">No upcoming events</p>';
+  document.getElementById('pastEvents').innerHTML = past.length ? past.map(eventCard).join('') : '<p class="text-center" style="grid-column:1/-1;color:#999">No past events</p>';
+  document.getElementById('homeEvents').innerHTML = upcoming.slice(0,3).map(eventCard).join('') || '<p class="text-center" style="grid-column:1/-1;color:#999">No upcoming events</p>';
+}
+
+function eventCard(e){
+  const img = e.poster ? `<img src="${e.poster}" class="event-img" onerror="this.style.display='none'">` : `<div class="event-img" style="display:flex;align-items:center;justify-content:center;color:#fff;font-size:3rem">🎉</div>`;
+  return `<div class="event-card">
+    ${img}
+    <div class="event-body">
+      <div class="event-date">📅 ${e.start} → ${e.end}</div>
+      <h3>${e.title}</h3>
+      <p>📍 ${e.location||'ISKCON Lakhimpur'}</p>
+      <p>${e.desc||''}</p>
+    </div>
+  </div>`;
+}
+
+/* ========== MEDIA ========== */
+function renderPublicMedia(){
+  const pub = [...DB.photos.filter(p=>p.published), ...DB.videos.filter(v=>v.published)];
+  const container = document.getElementById('publicMedia');
+  if(!pub.length){container.innerHTML = '<p class="text-center" style="grid-column:1/-1;color:#999;padding:40px">No media published yet</p>';return;}
+  container.innerHTML = pub.map(m=>{
+    if(m.type==='photo'){
+      return `<div class="media-item"><img src="${m.url}" alt="${m.alt||''}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23E67300%22 width=%22200%22 height=%22200%22/><text x=%22100%22 y=%22110%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22white%22>🖼</text></svg>'"><div class="media-caption">${m.caption||''}</div></div>`;
+    }else{
+      return `<div class="media-item"><iframe src="https://www.youtube.com/embed/${m.videoId}" allowfullscreen></iframe><div class="media-caption">${m.caption||''}</div></div>`;
+    }
+  }).join('');
+}
+
+/* ========== JAPA MALA ========== */
+let bead=parseInt(localStorage.getItem('iskcon_beads')||'0');
+let rounds=parseInt(localStorage.getItem('iskcon_rounds')||'0');
+function updateMala(){
+  document.getElementById('beadCount').textContent = bead;
+  document.getElementById('roundsCount').textContent = rounds;
+}
+function tapBead(){
+  bead++;
+  if(navigator.vibrate) navigator.vibrate(30);
+  if(bead >= 108){bead=0;rounds++;toast('🎉 Round completed! '+rounds+' rounds done.');}
+  localStorage.setItem('iskcon_beads',bead);
+  localStorage.setItem('iskcon_rounds',rounds);
+  updateMala();
+}
+function resetMala(){
+  if(confirm('Reset japa counter to zero?')){
+    bead=0;rounds=0;
+    localStorage.setItem('iskcon_beads',0);
+    localStorage.setItem('iskcon_rounds',0);
+    updateMala();toast('🔄 Mala reset');
+  }
+}
+
+/* ========== QUIZ ========== */
+let currentQuiz=[], currentQ=0, currentScore=0, currentName='', timerInterval, timeLeft=30, answered=false;
+
+function renderQuizList(){
+  const c = document.getElementById('quizList');
+  const published = DB.quiz.filter(q=>q.published);
+  if(!published.length){
+    c.innerHTML = '<p style="color:#999;padding:20px">No published quizzes yet. Admin can add via Admin Panel.</p>';
+    return;
+  }
+  c.innerHTML = `<h4 style="margin:20px 0 10px">Available Quizzes:</h4>` +
+    published.map((q,i)=>`<button class="btn btn-primary" style="margin:5px" onclick="startQuiz(${DB.quiz.indexOf(q)})">${q.title} (${q.questions.length} Q)</button>`).join('');
+}
+
+function startQuiz(idx){
+  currentName = document.getElementById('quizName').value.trim();
+  if(!currentName){toast('⚠️ Please enter your name');return;}
+  const quiz = DB.quiz[idx];
+  currentQuiz = quiz.questions;
+  currentQ = 0; currentScore = 0;
+  document.getElementById('quizStart').classList.add('hidden');
+  document.getElementById('quizPlay').classList.remove('hidden');
+  document.getElementById('quizResult').classList.add('hidden');
+  renderQuestion();
+}
+
+function renderQuestion(){
+  answered = false;
+  const q = currentQuiz[currentQ];
+  document.getElementById('qCounter').textContent = `Question ${currentQ+1} of ${currentQuiz.length}`;
+  document.getElementById('progressFill').style.width = ((currentQ+1)/currentQuiz.length*100)+'%';
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('qOptions').innerHTML = q.options.map((o,i)=>`<div class="option" onclick="selectOption(${i})">${String.fromCharCode(65+i)}. ${o}</div>`).join('');
+  document.getElementById('qExplanation').classList.add('hidden');
+  document.getElementById('nextBtn').textContent = currentQ===currentQuiz.length-1 ? 'Finish ✓' : 'Next →';
+  document.getElementById('nextBtn').disabled = false;
+  startTimer();
+}
+
+function startTimer(){
+  clearInterval(timerInterval);
+  timeLeft = 30;
+  document.getElementById('timer').textContent = `⏱ ${timeLeft}s`;
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    document.getElementById('timer').textContent = `⏱ ${timeLeft}s`;
+    if(timeLeft<=0){clearInterval(timerInterval); if(!answered) autoNext();}
+  },1000);
+}
+
+function selectOption(i){
+  if(answered) return;
+  answered = true;
+  clearInterval(timerInterval);
+  const q = currentQuiz[currentQ];
+  const options = document.querySelectorAll('#qOptions .option');
+  options.forEach((o,idx)=>{
+    if(idx===q.correct) o.classList.add('correct');
+    else if(idx===i) o.classList.add('wrong');
+  });
+  if(i===q.correct) currentScore++;
+  const exp = document.getElementById('qExplanation');
+  exp.textContent = '💡 '+(q.explanation||'Correct answer: '+String.fromCharCode(65+q.correct));
+  exp.classList.remove('hidden');
+}
+
+function autoNext(){
+  answered = true;
+  const q = currentQuiz[currentQ];
+  document.querySelectorAll('#qOptions .option').forEach((o,idx)=>{
+    if(idx===q.correct) o.classList.add('correct');
+  });
+  const exp = document.getElementById('qExplanation');
+  exp.textContent = '⏰ Time up! Correct: '+String.fromCharCode(65+q.correct);
+  exp.classList.remove('hidden');
+}
+
+function nextQuestion(){
+  if(!answered){toast('⚠️ Please select an answer first');return;}
+  currentQ++;
+  if(currentQ >= currentQuiz.length) finishQuiz();
+  else renderQuestion();
+}
+
+function finishQuiz(){
+  clearInterval(timerInterval);
+  document.getElementById('quizPlay').classList.add('hidden');
+  const result = document.getElementById('quizResult');
+  result.classList.remove('hidden');
+  const pct = Math.round(currentScore/currentQuiz.length*100);
+  const date = new Date().toLocaleDateString();
+  DB.toppers.push({name:currentName, score:currentScore, total:currentQuiz.length, pct, date});
+  DB.toppers.sort((a,b)=>b.pct-a.pct);
+  save();
+  result.innerHTML = `
+    <div class="certificate">
+      <h2>🏆 Certificate of Spiritual Achievement</h2>
+      <p style="color:#666">This certifies that</p>
+      <div class="name">${currentName}</div>
+      <p style="color:#666">has successfully completed the Bhagavad Gita Quiz</p>
+      <div class="score">${currentScore} / ${currentQuiz.length}</div>
+      <p style="font-size:1.2rem;color:var(--maroon);font-weight:600">${pct}% Score</p>
+      <p style="margin-top:15px;color:#666;font-size:0.9rem">Date: ${date}</p>
+      <p style="margin-top:20px;font-style:italic;color:var(--deep-saffron)">"Always remember Me and you will surely come to Me." - BG 8.7</p>
+      <div class="mt-20">
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Print Certificate</button>
+        <button class="btn btn-outline" style="color:var(--maroon);border-color:var(--maroon)" onclick="restartQuiz()">🔄 Take Again</button>
+      </div>
+    </div>
+  `;
+}
+
+function restartQuiz(){
+  document.getElementById('quizResult').classList.add('hidden');
+  document.getElementById('quizStart').classList.remove('hidden');
+  renderQuizList();
+}
+
+/* ========== LEADERBOARD ========== */
+function renderLeaderboard(){
+  const body = document.getElementById('leaderboardBody');
+  if(!DB.toppers.length){body.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#999;padding:30px">No quiz attempts yet. Be the first!</td></tr>';return;}
+  body.innerHTML = DB.toppers.slice(0,20).map((t,i)=>{
+    const medal = i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+(i+1);
+    return `<tr><td><strong>${medal}</strong></td><td>${t.name}</td><td><strong>${t.score}/${t.total}</strong> (${t.pct}%)</td><td>${t.date}</td></tr>`;
+  }).join('');
+}
+
+/* ========== SEVA MODAL ========== */
+function openSeva(){
+  const modal = document.getElementById('sevaModal');
+  modal.classList.add('active');
+  document.getElementById('sevaOptions').innerHTML = `
+    <button class="option" onclick="showSevaDetail('Anna Daan Seva','🍛','Feed devotees and guests with sanctified prasadam')">🍛 Anna Daan Seva</button>
+    <button class="option" onclick="showSevaDetail('Nitya Seva','🕉️','Support daily temple worship and maintenance')">🕉️ Nitya Seva</button>
+    <button class="option" onclick="showSevaDetail('Deity Seva','👑','Offer bhoga, flowers, and decorations to the Deities')">👑 Deity Seva</button>
+  `;
+  document.getElementById('sevaDetails').classList.add('hidden');
+}
+function closeSeva(){document.getElementById('sevaModal').classList.remove('active');}
+function showSevaDetail(title, icon, desc){
+  const s = DB.seva;
+  const upiLink = `upi://pay?pa=${s.upi}&pn=${encodeURIComponent(title)}&cu=INR`;
+  document.getElementById('sevaDetails').innerHTML = `
+    <div class="card" style="background:#fff8e6">
+      <h3>${icon} ${title}</h3>
+      <p style="color:#666;font-size:0.9rem;margin:10px 0">${desc}</p>
+      <div style="background:#fff;padding:15px;border-radius:10px;margin:15px 0;font-size:0.9rem">
+        <p><strong>Bank:</strong> ${s.bank}</p>
+        <p><strong>A/C:</strong> ${s.acc}</p>
+        <p><strong>IFSC:</strong> ${s.ifsc}</p>
+        <p><strong>UPI:</strong> ${s.upi}</p>
+      </div>
+      ${s.qr?`<img src="${s.qr}" style="max-width:200px;display:block;margin:0 auto 15px">`:''}
+      <a href="${upiLink}" class="btn btn-primary" style="width:100%;text-align:center">💳 Pay via UPI</a>
+    </div>
+  `;
+  document.getElementById('sevaDetails').classList.remove('hidden');
+}
+document.getElementById('sevaModal').addEventListener('click',e=>{if(e.target.id==='sevaModal')closeSeva();});
+
+/* ========== KIRTAN PLAYER ========== */
+function startKirtan(){
+  document.getElementById('audioBar').classList.add('active');
+  toast('🎵 Hare Krishna Mahamantra playing');
+}
+function togglePlay(){
+  const btn = document.getElementById('playBtn');
+  btn.textContent = btn.textContent==='⏸'?'▶':'⏸';
+}
+function stopKirtan(){
+  document.getElementById('audioBar').classList.remove('active');
+}
+
+/* ========== ADMIN ========== */
+let adminAuthed = false;
+function adminLogin(){
+  const pass = document.getElementById('adminPass').value;
+  if(pass === DB.settings.password){
+    adminAuthed = true;
+    document.getElementById('adminLogin').classList.add('hidden');
+    document.getElementById('adminContent').classList.remove('hidden');
+    renderAdminAll();
+    toast('✅ Logged in successfully');
+  }else{
+    toast('❌ Wrong password');
+  }
+}
+
+function switchAdminTab(tab, btn){
+  document.querySelectorAll('.admin-panel').forEach(p=>p.classList.add('hidden'));
+  document.getElementById('admin-'+tab).classList.remove('hidden');
+  document.querySelectorAll('.admin-tabs button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(tab==='overview') renderStats();
+  if(tab==='media') renderAdminMedia();
+  if(tab==='events') renderAdminEvents();
+  if(tab==='quiz') renderAdminQuiz();
+  if(tab==='sloka') renderAdminSloka();
+  if(tab==='seva') loadSevaForm();
+}
+
+function renderStats(){
+  document.getElementById('statsGrid').innerHTML = `
+    <div class="stat-card"><div class="num">${DB.photos.length}</div><div class="lbl">📸 Photos</div></div>
+    <div class="stat-card green"><div class="num">${DB.videos.length}</div><div class="lbl">🎬 Videos</div></div>
+    <div class="stat-card blue"><div class="num">${DB.events.length}</div><div class="lbl">🎉 Events</div></div>
+    <div class="stat-card purple"><div class="num">${DB.quiz.reduce((a,q)=>a+q.questions.length,0)}</div><div class="lbl">🧠 Quiz Qs</div></div>
+    <div class="stat-card red"><div class="num">${DB.slokas.length}</div><div class="lbl">📜 Slokas</div></div>
+    <div class="stat-card"><div class="num">${DB.toppers.length}</div><div class="lbl">🏆 Attempts</div></div>
+  `;
+  document.getElementById('adminToppers').innerHTML = DB.toppers.slice(0,5).map(t=>
+    `<tr><td>${t.name}</td><td>${t.score}/${t.total} (${t.pct}%)</td><td>${t.date}</td></tr>`
+  ).join('') || '<tr><td colspan="3" style="text-align:center;color:#999">No attempts yet</td></tr>';
+}
+
+function saveSettings(){
+  DB.settings.title = document.getElementById('setTitle').value;
+  DB.settings.phone = document.getElementById('setPhone').value;
+  DB.settings.email = document.getElementById('setEmail').value;
+  DB.settings.address = document.getElementById('setAddress').value;
+  DB.settings.heroTitle = document.getElementById('setHeroTitle').value;
+  DB.settings.heroSubtitle = document.getElementById('setHeroSub').value;
+  DB.settings.emblem = document.getElementById('setEmblem').value;
+  DB.settings.password = document.getElementById('setPass').value || 'admin123';
+  save(); applySettings();
+  toast('✅ Settings saved');
+}
+
+let tempPhotoData = '';
+function handlePhotoUpload(e){
+  const f = e.target.files[0];
+  if(!f) return;
+  const r = new FileReader();
+  r.onload = ev => {tempPhotoData = ev.target.result; toast('📷 Photo loaded');};
+  r.readAsDataURL(f);
+}
+function addPhoto(){
+  const url = tempPhotoData || document.getElementById('photoUrl').value.trim();
+  if(!url){toast('⚠️ Upload or paste image URL');return;}
+  DB.photos.push({
+    type:'photo', url,
+    caption: document.getElementById('photoCaption').value,
+    alt: document.getElementById('photoAlt').value,
+    published: true
+  });
+  save(); tempPhotoData='';
+  document.getElementById('photoFile').value='';
+  document.getElementById('photoUrl').value='';
+  document.getElementById('photoCaption').value='';
+  document.getElementById('photoAlt').value='';
+  renderAdminMedia(); renderPublicMedia();
+  toast('✅ Photo added');
+}
+function addVideo(){
+  const url = document.getElementById('videoUrl').value.trim();
+  if(!url){toast('⚠️ Enter YouTube URL');return;}
+  let vid = '';
+  try{
+    if(url.includes('youtu.be/')) vid = url.split('youtu.be/')[1].split('?')[0];
+    else if(url.includes('v=')) vid = url.split('v=')[1].split('&')[0];
+    else if(url.includes('embed/')) vid = url.split('embed/')[1].split('?')[0];
+    else vid = url;
+  }catch(e){vid=url;}
+  DB.videos.push({
+    type:'video', videoId:vid, url,
+    caption: document.getElementById('videoCaption').value,
+    published: true
+  });
+  save();
+  document.getElementById('videoUrl').value='';
+  document.getElementById('videoCaption').value='';
+  renderAdminMedia(); renderPublicMedia();
+  toast('✅ Video added');
+}
+function renderAdminMedia(){
+  const all = [...DB.photos.map((p,i)=>({...p,idx:i,kind:'photo'})), ...DB.videos.map((v,i)=>({...v,idx:i,kind:'video'}))];
+  document.getElementById('adminMediaList').innerHTML = all.length ? `<div class="media-grid">` + all.map(m=>`
+    <div class="media-item">
+      ${m.kind==='photo'?`<img src="${m.url}">`:`<iframe src="https://www.youtube.com/embed/${m.videoId}" allowfullscreen></iframe>`}
+      <div class="media-caption">
+        ${m.caption||'(no caption)'}
+        <div style="margin-top:5px">
+          <button class="btn-sm ${m.published?'btn-warn':'btn-success'}" onclick="toggleMedia('${m.kind}',${m.idx})">${m.published?'Unpublish':'Publish'}</button>
+          <button class="btn-sm btn-danger" onclick="deleteMedia('${m.kind}',${m.idx})">Delete</button>
+        </div>
+      </div>
+    </div>
+  `).join('') + `</div>` : '<p style="color:#999">No media yet</p>';
+}
+function toggleMedia(kind, idx){
+  if(kind==='photo') DB.photos[idx].published = !DB.photos[idx].published;
+  else DB.videos[idx].published = !DB.videos[idx].published;
+  save(); renderAdminMedia(); renderPublicMedia();
+}
+function deleteMedia(kind, idx){
+  if(!confirm('Delete this media?')) return;
+  if(kind==='photo') DB.photos.splice(idx,1); else DB.videos.splice(idx,1);
+  save(); renderAdminMedia(); renderPublicMedia();
+  toast('🗑️ Deleted');
+}
+
+function addEvent(){
+  const e = {
+    title: document.getElementById('evtTitle').value,
+    poster: document.getElementById('evtPoster').value,
+    start: document.getElementById('evtStart').value,
+    end: document.getElementById('evtEnd').value || document.getElementById('evtStart').value,
+    location: document.getElementById('evtLocation').value || 'ISKCON Lakhimpur',
+    desc: document.getElementById('evtDesc').value
+  };
+  if(!e.title || !e.start){toast('⚠️ Title & start date required');return;}
+  DB.events.push(e); save();
+  document.getElementById('evtTitle').value='';
+  document.getElementById('evtPoster').value='';
+  document.getElementById('evtStart').value='';
+  document.getElementById('evtEnd').value='';
+  document.getElementById('evtLocation').value='';
+  document.getElementById('evtDesc').value='';
+  renderAdminEvents(); renderEvents();
+  toast('✅ Event created');
+}
+function renderAdminEvents(){
+  document.getElementById('adminEventList').innerHTML = DB.events.length ?
+    DB.events.map((e,i)=>`
+      <div class="card" style="margin-bottom:15px">
+        <strong>${e.title}</strong> — 📅 ${e.start} → ${e.end}<br>
+        <small>📍 ${e.location}</small><br>
+        <small>${e.desc||''}</small><br>
+        <button class="btn-sm btn-danger mt-20" onclick="deleteEvent(${i})">Delete</button>
+      </div>
+    `).join('') : '<p style="color:#999">No events yet</p>';
+}
+function deleteEvent(i){
+  if(!confirm('Delete this event?'))return;
+  DB.events.splice(i,1); save(); renderAdminEvents(); renderEvents();
+}
+
+/* QUIZ ADMIN */
+let draftQuiz = {title:'', questions:[]};
+function generateAIQuiz(){
+  const key = document.getElementById('geminiKey').value.trim();
+  const topic = document.getElementById('aiTopic').value.trim() || 'Bhagavad Gita';
+  const count = parseInt(document.getElementById('aiCount').value) || 5;
+  if(!key){toast('⚠️ Enter Gemini API Key');return;}
+  toast('🤖 Generating quiz with AI...');
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${key}`;
+  const prompt = `Generate ${count} multiple-choice questions about "${topic}". Return ONLY a valid JSON array (no markdown) with this exact format:
+[{"q":"question text","options":["A","B","C","D"],"correct":0,"explanation":"why"}]
+correct is index 0-3.`;
+  fetch(url, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})
+  })
+  .then(r=>r.json())
+  .then(data=>{
+    let text = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    text = text.replace(/```json|```/g,'').trim();
+    const arr = JSON.parse(text);
+    arr.forEach(q=>draftQuiz.questions.push(q));
+    if(!draftQuiz.title) draftQuiz.title = topic+' Quiz';
+    renderAdminQuiz();
+    toast('✅ AI generated '+arr.length+' questions');
+  })
+  .catch(err=>{toast('❌ AI error: '+err.message);console.error(err);});
+}
+
+function addManualQuestion(){
+  const q = {
+    q: document.getElementById('mqQ').value,
+    options: [
+      document.getElementById('mqA').value,
+      document.getElementById('mqB').value,
+      document.getElementById('mqC').value,
+      document.getElementById('mqD').value
+    ],
+    correct: parseInt(document.getElementById('mqCorrect').value),
+    explanation: document.getElementById('mqExp').value
+  };
+  if(!q.q || q.options.some(o=>!o)){toast('⚠️ Fill question & all 4 options');return;}
+  if(!draftQuiz.title) draftQuiz.title = document.getElementById('mqTitle').value || 'Custom Quiz';
+  draftQuiz.questions.push(q);
+  ['mqQ','mqA','mqB','mqC','mqD','mqExp'].forEach(id=>document.getElementById(id).value='');
+  renderAdminQuiz();
+  toast('✅ Question added');
+}
+function renderAdminQuiz(){
+  document.getElementById('qCount').textContent = draftQuiz.questions.length;
+  document.getElementById('adminQuizList').innerHTML = draftQuiz.questions.length ?
+    draftQuiz.questions.map((q,i)=>`
+      <div class="card" style="margin-bottom:10px">
+        <strong>Q${i+1}: ${q.q}</strong>
+        <ol style="margin:8px 0 8px 20px;font-size:0.9rem">
+          ${q.options.map((o,j)=>`<li style="${j===q.correct?'color:var(--green);font-weight:600':''}">${o} ${j===q.correct?'✓':''}</li>`).join('')}
+        </ol>
+        <small style="color:#666">💡 ${q.explanation||''}</small><br>
+        <button class="btn-sm btn-danger mt-20" onclick="deleteQuizQ(${i})">Delete</button>
+      </div>
+    `).join('') : '<p style="color:#999">No questions yet</p>';
+}
+function deleteQuizQ(i){draftQuiz.questions.splice(i,1);renderAdminQuiz();}
+function publishQuiz(){
+  if(!draftQuiz.title || !draftQuiz.questions.length){toast('⚠️ Add title & questions');return;}
+  DB.quiz.push({title:draftQuiz.title, questions:[...draftQuiz.questions], published:true});
+  save();
+  draftQuiz = {title:'', questions:[]};
+  document.getElementById('mqTitle').value='';
+  renderAdminQuiz();
+  toast('🚀 Quiz published!');
+}
+
+/* SLOKA ADMIN */
+function addSloka(){
+  const s = {
+    sanskrit: document.getElementById('slSanskrit').value,
+    translation: document.getElementById('slTrans').value,
+    ref: document.getElementById('slRef').value
+  };
+  if(!s.sanskrit || !s.translation){toast('⚠️ Sanskrit & translation required');return;}
+  DB.slokas.push(s); save();
+  ['slSanskrit','slTrans','slRef'].forEach(id=>document.getElementById(id).value='');
+  renderAdminSloka(); renderSloka();
+  toast('✅ Sloka added');
+}
+function renderAdminSloka(){
+  document.getElementById('adminSlokaList').innerHTML = DB.slokas.map((s,i)=>`
+    <div class="card" style="margin-bottom:10px">
+      <div style="color:var(--maroon);font-weight:600">${s.sanskrit}</div>
+      <div style="color:#666;font-style:italic;margin:5px 0">${s.translation}</div>
+      <small>— ${s.ref}</small><br>
+      <button class="btn-sm btn-danger mt-20" onclick="deleteSloka(${i})">Delete</button>
+    </div>
+  `).join('');
+}
+function deleteSloka(i){DB.slokas.splice(i,1);save();renderAdminSloka();renderSloka();}
+
+/* SEVA ADMIN */
+function loadSevaForm(){
+  document.getElementById('sevaBank').value = DB.seva.bank;
+  document.getElementById('sevaAcc').value = DB.seva.acc;
+  document.getElementById('sevaIfsc').value = DB.seva.ifsc;
+  document.getElementById('sevaUpi').value = DB.seva.upi;
+  document.getElementById('sevaQr').value = DB.seva.qr;
+}
+function saveSeva(){
+  DB.seva.bank = document.getElementById('sevaBank').value;
+  DB.seva.acc = document.getElementById('sevaAcc').value;
+  DB.seva.ifsc = document.getElementById('sevaIfsc').value;
+  DB.seva.upi = document.getElementById('sevaUpi').value;
+  DB.seva.qr = document.getElementById('sevaQr').value;
+  save();
+  toast('✅ Seva settings saved');
+}
+
+function renderAdminAll(){
+  renderStats();
+  renderAdminMedia();
+  renderAdminEvents();
+  renderAdminQuiz();
+  renderAdminSloka();
+}
+
+/* ========== INIT ========== */
+window.addEventListener('load', ()=>{
+  applySettings();
+  renderSloka();
+  renderEvents();
+  renderPublicMedia();
+  renderQuizList();
+  updateMala();
+  // Seed a sample quiz if none exist
+  if(!DB.quiz.length){
+    DB.quiz.push({
+      title:'Bhagavad Gita Basics',
+      published:true,
+      questions:[
+        {q:'Who spoke the Bhagavad Gita to Arjuna?', options:['Lord Krishna','Lord Shiva','Lord Brahma','Sage Vyasa'], correct:0, explanation:'Lord Krishna delivered the Bhagavad Gita to Arjuna on the battlefield of Kurukshetra.'},
+        {q:'How many chapters are in the Bhagavad Gita?', options:['12','15','18','24'], correct:2, explanation:'The Bhagavad Gita has 18 chapters and 700 verses.'},
+        {q:'Where was the Bhagavad Gita spoken?', options:['Vrindavan','Kurukshetra','Dwaraka','Hastinapur'], correct:1, explanation:'It was spoken at Kurukshetra before the great Mahabharata war.'},
+        {q:'What does "Karma Yoga" refer to?', options:['Path of devotion','Path of knowledge','Path of action','Path of meditation'], correct:2, explanation:'Karma Yoga is the yoga of selfless action without attachment to results.'},
+        {q:'What is the ultimate teaching of the Gita?', options:['Renounce everything','Surrender to God','Fight always','Avoid duties'], correct:1, explanation:'Surrender unto the Supreme Lord is the ultimate teaching - sarva dharman parityajya.'}
+      ]
+    });
+    save();
+  }
+  toast('🙏 Welcome to ISKCON Lakhimpur!');
+});
+</script>
+</body>
+  </html>
