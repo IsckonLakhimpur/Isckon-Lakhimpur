@@ -15,6 +15,7 @@
   --dark:#2B1810;
   --green:#1a7a3e;
   --blue:#1e3a8a;
+  --sidebar-w:240px;
 }
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:var(--cream);color:var(--dark);line-height:1.6;overflow-x:hidden;}
@@ -23,45 +24,72 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;}
 /* HEADER */
 header{
   background:linear-gradient(135deg,var(--maroon) 0%,var(--deep-saffron) 100%);
-  color:#fff;padding:15px 20px;position:sticky;top:0;z-index:1000;
+  color:#fff;padding:12px 20px;position:sticky;top:0;z-index:1000;
   box-shadow:0 4px 20px rgba(0,0,0,0.3);
 }
 .header-wrap{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .logo-block{display:flex;align-items:center;gap:15px;}
-.emblem{width:65px;height:65px;flex-shrink:0;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
-.site-title h1{font-size:1.6rem;letter-spacing:1px;line-height:1.1;}
-.site-title p{font-size:0.75rem;opacity:0.9;letter-spacing:2px;text-transform:uppercase;}
-nav{display:flex;gap:8px;flex-wrap:wrap;}
-nav button{
-  background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);
-  padding:8px 16px;border-radius:25px;cursor:pointer;font-size:0.85rem;
-  transition:all 0.3s;font-weight:500;
+.emblem{width:60px;height:60px;flex-shrink:0;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+.site-title h1{font-size:1.5rem;letter-spacing:1px;line-height:1.1;}
+.site-title p{font-size:0.7rem;opacity:0.9;letter-spacing:2px;text-transform:uppercase;}
+.menu-toggle{
+  display:none;background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);
+  padding:8px 12px;border-radius:8px;font-size:1.2rem;cursor:pointer;
 }
-nav button:hover,nav button.active{background:var(--gold);color:var(--maroon);border-color:var(--gold);transform:translateY(-2px);}
+
+/* SIDEBAR LAYOUT */
+.layout{display:flex;min-height:calc(100vh - 90px);}
+.sidebar{
+  width:var(--sidebar-w);background:#fff;border-right:2px solid #f0e0c0;
+  padding:20px 12px;position:sticky;top:90px;height:calc(100vh - 90px);
+  overflow-y:auto;flex-shrink:0;box-shadow:2px 0 15px rgba(0,0,0,0.05);
+}
+.sidebar-title{
+  font-size:0.75rem;color:var(--deep-saffron);text-transform:uppercase;
+  letter-spacing:1.5px;font-weight:600;margin:15px 8px 8px;padding-bottom:5px;
+  border-bottom:1px dashed #f0d0a0;
+}
+.sidebar-title:first-child{margin-top:0;}
+.sidebar button{
+  display:flex;align-items:center;gap:12px;width:100%;
+  background:transparent;color:var(--dark);border:none;
+  padding:11px 14px;border-radius:10px;cursor:pointer;
+  font-size:0.9rem;font-weight:500;text-align:left;
+  transition:all 0.25s;margin-bottom:3px;
+}
+.sidebar button:hover{background:#fff5e6;color:var(--maroon);transform:translateX(4px);}
+.sidebar button.active{
+  background:linear-gradient(135deg,var(--saffron),var(--deep-saffron));
+  color:#fff;box-shadow:0 4px 12px rgba(230,115,0,0.35);
+  transform:translateX(4px);
+}
+.sidebar button .ico{font-size:1.2rem;width:24px;text-align:center;}
+
+/* MAIN CONTENT */
+.main-content{flex:1;min-width:0;}
 
 /* HERO */
 .hero{
   background:linear-gradient(rgba(43,24,16,0.75),rgba(123,30,30,0.75)),url('https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=1600') center/cover;
-  color:#fff;padding:80px 20px;text-align:center;position:relative;
+  color:#fff;padding:70px 20px;text-align:center;position:relative;
 }
-.hero h2{font-size:2.8rem;margin-bottom:15px;text-shadow:2px 2px 8px rgba(0,0,0,0.6);}
-.hero p{font-size:1.15rem;max-width:800px;margin:0 auto 25px;opacity:0.95;}
+.hero h2{font-size:2.5rem;margin-bottom:15px;text-shadow:2px 2px 8px rgba(0,0,0,0.6);}
+.hero p{font-size:1.1rem;max-width:800px;margin:0 auto 25px;opacity:0.95;}
 .hero-btns{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;}
 .btn{
-  padding:12px 28px;border-radius:30px;border:none;cursor:pointer;
-  font-weight:600;font-size:0.95rem;transition:all 0.3s;text-decoration:none;display:inline-block;
+  padding:11px 26px;border-radius:30px;border:none;cursor:pointer;
+  font-weight:600;font-size:0.9rem;transition:all 0.3s;text-decoration:none;display:inline-block;
 }
 .btn-primary{background:var(--saffron);color:#fff;box-shadow:0 4px 15px rgba(255,153,51,0.5);}
 .btn-primary:hover{background:var(--gold);color:var(--maroon);transform:translateY(-3px);}
 .btn-outline{background:transparent;color:#fff;border:2px solid #fff;}
 .btn-outline:hover{background:#fff;color:var(--maroon);}
+.btn:disabled{opacity:0.5;cursor:not-allowed;transform:none!important;}
 
 /* MAIN CONTAINER */
-.container{max-width:1400px;margin:0 auto;padding:40px 20px;}
-.section-title{
-  text-align:center;margin-bottom:40px;
-}
-.section-title h2{font-size:2.2rem;color:var(--maroon);position:relative;display:inline-block;padding-bottom:12px;}
+.container{max-width:1300px;margin:0 auto;padding:35px 25px;}
+.section-title{text-align:center;margin-bottom:35px;}
+.section-title h2{font-size:2rem;color:var(--maroon);position:relative;display:inline-block;padding-bottom:12px;}
 .section-title h2::after{
   content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
   width:80px;height:4px;background:linear-gradient(90deg,var(--saffron),var(--gold));border-radius:2px;
@@ -69,32 +97,32 @@ nav button:hover,nav button.active{background:var(--gold);color:var(--maroon);bo
 .section-title p{color:#666;margin-top:10px;font-size:1rem;}
 
 /* CARDS */
-.grid{display:grid;gap:25px;}
-.grid-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
-.grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
-.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+.grid{display:grid;gap:22px;}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
 .card{
-  background:#fff;border-radius:16px;padding:25px;
+  background:#fff;border-radius:16px;padding:22px;
   box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:all 0.3s;
   border-top:4px solid var(--saffron);
 }
 .card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.15);}
-.card-icon{font-size:2.5rem;margin-bottom:12px;}
-.card h3{color:var(--maroon);margin-bottom:10px;font-size:1.3rem;}
+.card-icon{font-size:2.3rem;margin-bottom:12px;}
+.card h3{color:var(--maroon);margin-bottom:10px;font-size:1.25rem;}
 .card p{color:#666;font-size:0.9rem;}
 
-/* SLoka Card */
+/* Sloka Card */
 .sloka-card{
   background:linear-gradient(135deg,#fff9e6,#ffe8cc);
   border:2px solid var(--gold);border-radius:20px;padding:35px;
   text-align:center;position:relative;margin-bottom:30px;
 }
-.sloka-sanskrit{font-size:1.5rem;color:var(--maroon);margin-bottom:20px;font-weight:600;line-height:1.8;}
-.sloka-translation{font-size:1.05rem;color:#555;font-style:italic;margin-bottom:15px;}
-.sloka-ref{color:var(--deep-saffron);font-weight:600;font-size:0.95rem;}
+.sloka-sanskrit{font-size:1.4rem;color:var(--maroon);margin-bottom:20px;font-weight:600;line-height:1.8;}
+.sloka-translation{font-size:1rem;color:#555;font-style:italic;margin-bottom:15px;}
+.sloka-ref{color:var(--deep-saffron);font-weight:600;font-size:0.9rem;}
 .audio-btn{
   background:var(--saffron);color:#fff;border:none;border-radius:50%;
-  width:50px;height:50px;font-size:1.3rem;cursor:pointer;margin-top:15px;
+  width:48px;height:48px;font-size:1.2rem;cursor:pointer;margin-top:15px;
   transition:all 0.3s;
 }
 .audio-btn:hover{background:var(--maroon);transform:scale(1.1);}
@@ -142,6 +170,44 @@ nav button:hover,nav button.active{background:var(--gold);color:var(--maroon);bo
 .certificate h2{color:var(--maroon);font-size:2rem;margin-bottom:10px;}
 .certificate .score{font-size:3rem;color:var(--deep-saffron);font-weight:700;margin:15px 0;}
 .certificate .name{font-size:1.5rem;color:var(--maroon);border-bottom:2px solid var(--gold);padding-bottom:5px;display:inline-block;margin:15px 0;}
+
+/* QUIZ LOCK / DATE NOTICE */
+.quiz-notice{
+  background:linear-gradient(135deg,#fff3cd,#ffe8a8);
+  border:2px solid var(--saffron);border-radius:16px;padding:30px;text-align:center;
+  max-width:600px;margin:20px auto;
+}
+.quiz-notice .icon{font-size:3rem;margin-bottom:15px;}
+.quiz-notice h3{color:var(--maroon);margin-bottom:10px;}
+.quiz-notice p{color:#666;font-size:0.95rem;}
+.quiz-notice .date-badge{
+  display:inline-block;background:var(--maroon);color:#fff;
+  padding:8px 20px;border-radius:25px;font-weight:600;margin:15px 0;
+}
+.quiz-locked{
+  background:linear-gradient(135deg,#fee2e2,#fecaca);
+  border:2px solid #dc2626;border-radius:16px;padding:30px;text-align:center;
+  max-width:600px;margin:20px auto;
+}
+.quiz-locked .icon{font-size:3rem;margin-bottom:15px;}
+.quiz-locked h3{color:#dc2626;margin-bottom:10px;}
+.quiz-locked p{color:#666;font-size:0.95rem;}
+
+/* QUIZ SCHEDULE CARD */
+.schedule-card{
+  background:linear-gradient(135deg,#e6f7ec,#d1fae5);
+  border:2px solid var(--green);border-radius:16px;padding:25px;text-align:center;
+  margin-bottom:20px;
+}
+.schedule-card h3{color:var(--green);margin-bottom:10px;}
+.schedule-card .big-date{
+  font-size:1.8rem;color:var(--maroon);font-weight:700;
+  font-family:'Playfair Display',serif;margin:10px 0;
+}
+.schedule-card .countdown{
+  display:inline-block;background:var(--maroon);color:#fff;
+  padding:6px 16px;border-radius:20px;font-weight:600;font-size:0.9rem;
+}
 
 /* SEVA MODAL */
 .modal-overlay{
@@ -197,7 +263,7 @@ nav button:hover,nav button.active{background:var(--gold);color:var(--maroon);bo
   position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);
   background:var(--maroon);color:#fff;padding:14px 28px;border-radius:30px;
   box-shadow:0 8px 25px rgba(0,0,0,0.3);z-index:5000;opacity:0;
-  transition:all 0.4s;font-weight:500;
+  transition:all 0.4s;font-weight:500;max-width:90vw;text-align:center;
 }
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
 
@@ -239,7 +305,7 @@ footer{
 }
 .footer-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:35px;margin-bottom:30px;}
 .footer-col h3{color:var(--gold);margin-bottom:15px;font-size:1.2rem;}
-.footer-col p,.footer-col a{color:#ddd;font-size:0.9rem;text-decoration:none;display:block;margin-bottom:8px;transition:color 0.2s;}
+.footer-col p,.footer-col a{color:#ddd;font-size:0.9rem;text-decoration:none;display:block;margin-bottom:8px;transition:color 0.2s;cursor:pointer;}
 .footer-col a:hover{color:var(--gold);}
 .footer-emblem{width:80px;height:80px;margin-bottom:15px;}
 .dev-credit{text-align:center;padding-top:25px;border-top:1px solid rgba(255,255,255,0.15);font-size:0.9rem;}
@@ -252,16 +318,34 @@ footer{
 .social-links a:hover{background:var(--gold);color:var(--maroon);transform:translateY(-3px);}
 
 /* RESPONSIVE */
+@media(max-width:900px){
+  .menu-toggle{display:block;}
+  .layout{flex-direction:column;}
+  .sidebar{
+    width:100%;position:fixed;top:0;left:-100%;height:100vh;z-index:1500;
+    transition:left 0.3s;padding-top:80px;box-shadow:4px 0 25px rgba(0,0,0,0.3);
+  }
+  .sidebar.open{left:0;}
+  .sidebar-close{
+    position:absolute;top:15px;right:15px;background:var(--maroon);color:#fff;
+    border:none;width:35px;height:35px;border-radius:50%;font-size:1.1rem;cursor:pointer;
+  }
+  .sidebar-overlay{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1400;
+  }
+  .sidebar-overlay.active{display:block;}
+}
 @media(max-width:768px){
   .site-title h1{font-size:1.1rem;}
   .site-title p{font-size:0.6rem;}
-  .emblem{width:50px;height:50px;}
-  .hero h2{font-size:1.8rem;}
-  .hero p{font-size:0.95rem;}
+  .emblem{width:45px;height:45px;}
+  .hero h2{font-size:1.7rem;}
+  .hero p{font-size:0.9rem;}
   .mala-circle{width:160px;height:160px;}
   .mala-count{font-size:3rem;}
-  .section-title h2{font-size:1.6rem;}
-  nav button{padding:6px 12px;font-size:0.75rem;}
+  .section-title h2{font-size:1.5rem;}
+  .container{padding:25px 15px;}
+  .admin-tabs button{padding:8px 12px;font-size:0.75rem;}
 }
 
 /* UTILITIES */
@@ -271,11 +355,19 @@ footer{
 .hidden{display:none!important;}
 .badge{padding:4px 10px;border-radius:20px;font-size:0.7rem;font-weight:600;text-transform:uppercase;}
 .badge-pub{background:#e6f7ec;color:var(--green);}
-.badge-draft{background:#fff3cd;color:#856404;}
+.badge-pending{background:#fff3cd;color:#856404;}
+.badge-approved{background:#e6f7ec;color:var(--green);}
+.badge-rejected{background:#fee2e2;color:#dc2626;}
 .btn-sm{padding:6px 12px;font-size:0.8rem;border-radius:8px;}
 .btn-danger{background:#dc2626;color:#fff;border:none;cursor:pointer;}
 .btn-success{background:var(--green);color:#fff;border:none;cursor:pointer;}
 .btn-warn{background:var(--saffron);color:#fff;border:none;cursor:pointer;}
+.btn-info{background:var(--blue);color:#fff;border:none;cursor:pointer;}
+
+.attempt-badge{
+  display:inline-block;background:#e6f7ec;color:var(--green);
+  padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;margin-left:10px;
+}
 </style>
 </head>
 <body>
@@ -284,7 +376,6 @@ footer{
 <header>
   <div class="header-wrap">
     <div class="logo-block">
-      <!-- ISKCON Lotus + Tilak Emblem (SVG) -->
       <svg class="emblem" id="headerEmblem" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="lg1" cx="50%" cy="50%" r="50%">
@@ -293,7 +384,6 @@ footer{
           </radialGradient>
         </defs>
         <circle cx="50" cy="50" r="48" fill="#FFF8E7" stroke="#7B1E1E" stroke-width="2"/>
-        <!-- Lotus petals -->
         <g fill="url(#lg1)" stroke="#7B1E1E" stroke-width="0.8">
           <ellipse cx="50" cy="30" rx="6" ry="14" opacity="0.9"/>
           <ellipse cx="38" cy="34" rx="6" ry="13" transform="rotate(-25 38 34)" opacity="0.85"/>
@@ -302,7 +392,6 @@ footer{
           <ellipse cx="72" cy="42" rx="5" ry="11" transform="rotate(50 72 42)" opacity="0.8"/>
           <ellipse cx="50" cy="58" rx="14" ry="7" opacity="0.95"/>
         </g>
-        <!-- Tilak (U-shape) -->
         <path d="M 40 50 Q 40 38 50 38 Q 60 38 60 50 L 60 68 L 55 68 L 55 50 Q 55 44 50 44 Q 45 44 45 50 L 45 68 L 40 68 Z" fill="#7B1E1E"/>
         <circle cx="50" cy="52" r="2.5" fill="#7B1E1E"/>
         <line x1="50" y1="40" x2="50" y2="70" stroke="#7B1E1E" stroke-width="1.2" opacity="0.6"/>
@@ -312,19 +401,42 @@ footer{
         <p>International Society for Krishna Consciousness</p>
       </div>
     </div>
-    <nav id="mainNav">
-      <button class="active" onclick="showPage('home',this)">🏠 Home</button>
-      <button onclick="showPage('about',this)">📖 About</button>
-      <button onclick="showPage('events',this)">🎉 Events</button>
-      <button onclick="showPage('media',this)">📸 Gallery</button>
-      <button onclick="showPage('quiz',this)">🧠 Quiz</button>
-      <button onclick="showPage('japa',this)">📿 Japa</button>
-      <button onclick="openSeva()">🙏 Seva</button>
-      <button onclick="showPage('leaderboard',this)">🏆 Toppers</button>
-      <button onclick="showPage('admin',this)">⚙️ Admin</button>
-    </nav>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
   </div>
 </header>
+
+<!-- SIDEBAR OVERLAY (mobile) -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- LAYOUT -->
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <button class="sidebar-close" onclick="toggleSidebar()" style="display:none" id="sidebarClose">✕</button>
+
+    <div class="sidebar-title">🏠 Main</div>
+    <button class="active" onclick="showPage('home',this)"><span class="ico">🏠</span> Home</button>
+    <button onclick="showPage('about',this)"><span class="ico">📖</span> About</button>
+
+    <div class="sidebar-title">🎉 Activities</div>
+    <button onclick="showPage('events',this)"><span class="ico">🎉</span> Events</button>
+    <button onclick="showPage('media',this)"><span class="ico">📸</span> Gallery</button>
+    <button onclick="startKirtan()"><span class="ico">🎵</span> Kirtan Player</button>
+
+    <div class="sidebar-title">🧠 Spiritual</div>
+    <button onclick="showPage('quiz',this)"><span class="ico">🧠</span> Gita Quiz</button>
+    <button onclick="showPage('japa',this)"><span class="ico">📿</span> Japa Mala</button>
+    <button onclick="showPage('leaderboard',this)"><span class="ico">🏆</span> Toppers</button>
+
+    <div class="sidebar-title">🙏 Seva</div>
+    <button onclick="openSeva()"><span class="ico">🙏</span> Online Seva</button>
+
+    <div class="sidebar-title">⚙️ System</div>
+    <button onclick="showPage('admin',this)"><span class="ico">⚙️</span> Admin</button>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
 
 <!-- HOME PAGE -->
 <div id="page-home" class="page">
@@ -339,7 +451,6 @@ footer{
   </section>
 
   <div class="container">
-    <!-- Daily Sloka -->
     <div class="section-title">
       <h2>📜 Daily Bhagavad Gita Verse</h2>
       <p>Divine wisdom for your day</p>
@@ -351,7 +462,6 @@ footer{
       <button class="audio-btn" onclick="playSlokaAudio()">🔊</button>
     </div>
 
-    <!-- Quick Features -->
     <div class="section-title mt-20">
       <h2>✨ Spiritual Features</h2>
     </div>
@@ -378,7 +488,6 @@ footer{
       </div>
     </div>
 
-    <!-- Upcoming Events -->
     <div class="section-title mt-20" style="margin-top:60px">
       <h2>🎉 Upcoming Festivals</h2>
     </div>
@@ -426,33 +535,7 @@ footer{
 <div id="page-quiz" class="page hidden">
   <div class="container">
     <div class="section-title"><h2>🧠 Bhagavad Gita Quiz</h2></div>
-    <div id="quizStart">
-      <div class="card text-center">
-        <div class="card-icon">🏆</div>
-        <h3>Test Your Spiritual Knowledge</h3>
-        <p class="mb-20">Answer questions about Bhagavad Gita and win a Spiritual Completion Certificate!</p>
-        <div class="form-group" style="max-width:400px;margin:0 auto 15px">
-          <input type="text" id="quizName" placeholder="Enter your full name" required>
-        </div>
-        <div id="quizList"></div>
-      </div>
-    </div>
-    <div id="quizPlay" class="hidden">
-      <div class="quiz-box">
-        <div class="quiz-header">
-          <div><strong id="qCounter">Question 1 of 10</strong></div>
-          <div class="timer" id="timer">⏱ 30s</div>
-        </div>
-        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:10%"></div></div>
-        <div class="question" id="qText"></div>
-        <div class="options" id="qOptions"></div>
-        <div id="qExplanation" class="explanation hidden"></div>
-        <div class="text-center mt-20">
-          <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next →</button>
-        </div>
-      </div>
-    </div>
-    <div id="quizResult" class="hidden"></div>
+    <div id="quizContainer"></div>
   </div>
 </div>
 
@@ -477,7 +560,7 @@ footer{
 <!-- LEADERBOARD -->
 <div id="page-leaderboard" class="page hidden">
   <div class="container">
-    <div class="section-title"><h2>🏆 Quiz Toppers</h2><p>Our brightest spiritual scholars</p></div>
+    <div class="section-title"><h2>🏆 Quiz Toppers</h2><p>Only admin-approved results are shown here</p></div>
     <div class="card">
       <table class="data-table">
         <thead><tr><th>Rank</th><th>Name</th><th>Score</th><th>Date</th></tr></thead>
@@ -508,22 +591,21 @@ footer{
         <button onclick="switchAdminTab('media',this)">📸 Media</button>
         <button onclick="switchAdminTab('events',this)">🎉 Events</button>
         <button onclick="switchAdminTab('quiz',this)">🧠 Quiz</button>
+        <button onclick="switchAdminTab('results',this)">🏆 Results</button>
         <button onclick="switchAdminTab('sloka',this)">📜 Slokas</button>
         <button onclick="switchAdminTab('seva',this)">🙏 Seva/UPI</button>
       </div>
 
-      <!-- Overview -->
       <div id="admin-overview" class="admin-panel">
         <h3>📊 Live Statistics</h3>
         <div class="stat-grid mt-20" id="statsGrid"></div>
-        <h3 class="mt-20">🏆 Recent Quiz Toppers</h3>
+        <h3 class="mt-20">🏆 Recent Approved Toppers</h3>
         <table class="data-table">
           <thead><tr><th>Name</th><th>Score</th><th>Date</th></tr></thead>
           <tbody id="adminToppers"></tbody>
         </table>
       </div>
 
-      <!-- Settings -->
       <div id="admin-settings" class="admin-panel hidden">
         <h3>⚙️ Website Settings</h3>
         <div class="grid grid-2 mt-20">
@@ -533,13 +615,12 @@ footer{
           <div class="form-group"><label>Address</label><input id="setAddress"></div>
           <div class="form-group" style="grid-column:1/-1"><label>Hero Banner Title</label><input id="setHeroTitle"></div>
           <div class="form-group" style="grid-column:1/-1"><label>Hero Subtitle</label><textarea id="setHeroSub" rows="2"></textarea></div>
-          <div class="form-group" style="grid-column:1/-1"><label>Emblem URL (optional - leave blank for default lotus)</label><input id="setEmblem" placeholder="https://..."></div>
+          <div class="form-group" style="grid-column:1/-1"><label>Emblem URL (optional)</label><input id="setEmblem" placeholder="https://..."></div>
           <div class="form-group"><label>Admin Password</label><input id="setPass"></div>
         </div>
         <button class="btn btn-primary mt-20" onclick="saveSettings()">💾 Save Settings</button>
       </div>
 
-      <!-- Media -->
       <div id="admin-media" class="admin-panel hidden">
         <h3>📸 Media Manager</h3>
         <div class="card mt-20" style="background:#fff8e6">
@@ -577,7 +658,6 @@ footer{
         <div id="adminMediaList" class="mt-20"></div>
       </div>
 
-      <!-- Events -->
       <div id="admin-events" class="admin-panel hidden">
         <h3>🎉 Event Manager</h3>
         <div class="card mt-20">
@@ -595,21 +675,55 @@ footer{
         <div id="adminEventList" class="mt-20"></div>
       </div>
 
-      <!-- Quiz -->
+      <!-- QUIZ ADMIN (with schedule date) -->
       <div id="admin-quiz" class="admin-panel hidden">
-        <h3>🧠 Quiz Generator</h3>
+        <h3>🧠 Quiz Manager</h3>
+
+        <!-- Quiz Scheduling -->
+        <div class="card mt-20" style="background:linear-gradient(135deg,#e6f7ec,#d1fae5);border-left:4px solid var(--green)">
+          <h4>📅 Quiz Schedule & Settings</h4>
+          <div class="grid grid-2 mt-20">
+            <div class="form-group">
+              <label>Quiz Title</label>
+              <input id="quizTitleInput" placeholder="e.g., Gita Chapter 2 Quiz">
+            </div>
+            <div class="form-group">
+              <label>Quiz Date (Students can attempt on this date only)</label>
+              <input type="date" id="quizDateInput">
+            </div>
+            <div class="form-group">
+              <label>Quiz Active Window</label>
+              <select id="quizWindowInput">
+                <option value="day">Only on that day (00:00 - 23:59)</option>
+                <option value="week">Full week from that date</option>
+                <option value="unlimited">No time limit (always open)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Allow Re-attempt?</label>
+              <select id="quizReattemptInput">
+                <option value="no">No — One attempt per device only</option>
+                <option value="yes">Yes — Allow multiple attempts</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="saveQuizSchedule()">💾 Save Quiz Schedule</button>
+          <div id="currentScheduleInfo" class="mt-20"></div>
+        </div>
+
+        <!-- AI Quiz Generator -->
         <div class="card mt-20" style="background:#f0e6ff">
           <h4>🤖 AI Quiz Generator (Gemini)</h4>
-          <p style="font-size:0.85rem;color:#666;margin:8px 0">Generate quiz questions using AI. Enter your Gemini API key below.</p>
+          <p style="font-size:0.85rem;color:#666;margin:8px 0">Generate quiz questions using AI.</p>
           <div class="form-group"><label>Gemini API Key</label><input type="password" id="geminiKey" placeholder="AIza..."></div>
           <div class="form-group"><label>Topic</label><input id="aiTopic" placeholder="e.g., Bhagavad Gita Chapter 2"></div>
           <div class="form-group"><label>Number of Questions</label><input type="number" id="aiCount" value="5" min="1" max="20"></div>
           <button class="btn btn-primary" onclick="generateAIQuiz()">✨ Generate with AI</button>
         </div>
 
+        <!-- Manual Quiz Builder -->
         <div class="card mt-20" style="background:#e6f7ec">
           <h4>✍️ Manual Quiz Builder</h4>
-          <div class="form-group"><label>Quiz Title</label><input id="mqTitle" placeholder="e.g., Gita Chapter 2 Quiz"></div>
           <div class="form-group"><label>Question</label><input id="mqQ" placeholder="Enter question"></div>
           <div class="grid grid-2">
             <div class="form-group"><label>Option A</label><input id="mqA"></div>
@@ -624,12 +738,42 @@ footer{
           <button class="btn btn-success" onclick="addManualQuestion()">➕ Add Question</button>
         </div>
 
-        <h3 class="mt-20">Quiz Questions (<span id="qCount">0</span>)</h3>
+        <h3 class="mt-20">Draft Quiz Questions (<span id="qCount">0</span>)</h3>
         <div id="adminQuizList" class="mt-20"></div>
         <button class="btn btn-primary mt-20" onclick="publishQuiz()">🚀 Publish Quiz</button>
       </div>
 
-      <!-- Sloka -->
+      <!-- RESULTS ADMIN (Approve/Reject) -->
+      <div id="admin-results" class="admin-panel hidden">
+        <h3>🏆 Quiz Results & Leaderboard Approval</h3>
+        <p style="color:#666;font-size:0.9rem;margin-top:8px">
+          Students who complete the quiz appear here as "Pending". Approve them to show on public leaderboard.
+        </p>
+
+        <h4 class="mt-20" style="color:#856404">⏳ Pending Approval (<span id="pendingCount">0</span>)</h4>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Score</th><th>Date</th><th>Device ID</th><th>Actions</th></tr></thead>
+          <tbody id="pendingResultsBody"></tbody>
+        </table>
+
+        <h4 class="mt-20" style="color:var(--green)">✅ Approved (<span id="approvedCount">0</span>)</h4>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Score</th><th>Date</th><th>Actions</th></tr></thead>
+          <tbody id="approvedResultsBody"></tbody>
+        </table>
+
+        <h4 class="mt-20" style="color:#dc2626">❌ Rejected (<span id="rejectedCount">0</span>)</h4>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Score</th><th>Date</th><th>Actions</th></tr></thead>
+          <tbody id="rejectedResultsBody"></tbody>
+        </table>
+
+        <div class="mt-20">
+          <button class="btn btn-success" onclick="approveAllPending()">✅ Approve All Pending</button>
+          <button class="btn btn-danger" onclick="clearAllResults()">🗑️ Clear All Results</button>
+        </div>
+      </div>
+
       <div id="admin-sloka" class="admin-panel hidden">
         <h3>📜 Daily Sloka Manager</h3>
         <div class="card mt-20">
@@ -641,7 +785,6 @@ footer{
         <div id="adminSlokaList" class="mt-20"></div>
       </div>
 
-      <!-- Seva -->
       <div id="admin-seva" class="admin-panel hidden">
         <h3>🙏 Seva / UPI Settings</h3>
         <div class="card mt-20">
@@ -666,6 +809,9 @@ footer{
     <div id="sevaOptions"></div>
     <div id="sevaDetails" class="hidden mt-20"></div>
   </div>
+</div>
+
+  </main>
 </div>
 
 <!-- AUDIO BAR -->
@@ -732,6 +878,35 @@ footer{
 </footer>
 
 <script>
+/* ========== DEVICE FINGERPRINT ========== */
+function getDeviceId(){
+  let id = localStorage.getItem('iskcon_device_id');
+  if(!id){
+    // Create unique device fingerprint
+    const nav = window.navigator;
+    const screen = window.screen;
+    const raw = [
+      nav.userAgent,
+      nav.language,
+      screen.colorDepth,
+      screen.width+'x'+screen.height,
+      new Date().getTimezoneOffset(),
+      nav.hardwareConcurrency || 0,
+      nav.platform || ''
+    ].join('|');
+    // Simple hash
+    let hash = 0;
+    for(let i=0;i<raw.length;i++){
+      const c = raw.charCodeAt(i);
+      hash = ((hash<<5)-hash)+c;
+      hash = hash & hash;
+    }
+    id = 'DEV_' + Math.abs(hash).toString(36) + '_' + Date.now().toString(36);
+    localStorage.setItem('iskcon_device_id', id);
+  }
+  return id;
+}
+
 /* ========== DATA STORE ========== */
 const DB = {
   settings: {
@@ -747,8 +922,15 @@ const DB = {
   photos:[],
   videos:[],
   events:[],
+  quizSchedule: {
+    title:'Bhagavad Gita Basics',
+    date: new Date().toISOString().split('T')[0],
+    window:'unlimited',
+    reattempt:'no',
+    published:true
+  },
   quiz:[],
-  toppers:[],
+  results:[],  // {name, score, total, pct, date, deviceId, status:'pending'|'approved'|'rejected'}
   slokas:[
     {sanskrit:'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥',
      translation:'"You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions."',
@@ -766,7 +948,6 @@ const DB = {
   }
 };
 
-/* Load from localStorage */
 try{
   const saved = localStorage.getItem('iskcon_data');
   if(saved){const p = JSON.parse(saved); Object.assign(DB, p);}
@@ -780,7 +961,17 @@ function toast(msg){
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2500);
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+/* ========== SIDEBAR TOGGLE (mobile) ========== */
+function toggleSidebar(){
+  const sb = document.getElementById('sidebar');
+  const ov = document.getElementById('sidebarOverlay');
+  const closeBtn = document.getElementById('sidebarClose');
+  sb.classList.toggle('open');
+  ov.classList.toggle('active');
+  closeBtn.style.display = sb.classList.contains('open') && window.innerWidth<=900 ? 'block' : 'none';
 }
 
 /* ========== PAGE NAVIGATION ========== */
@@ -789,14 +980,19 @@ function showPage(page, btn){
   const el = document.getElementById('page-'+page);
   if(el) el.classList.remove('hidden');
   if(btn){
-    document.querySelectorAll('#mainNav button').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.sidebar button').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
   }
   window.scrollTo({top:0,behavior:'smooth'});
+  // Close sidebar on mobile
+  if(window.innerWidth<=900){
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('active');
+  }
   if(page==='events') renderEvents();
   if(page==='media') renderPublicMedia();
   if(page==='leaderboard') renderLeaderboard();
-  if(page==='quiz') renderQuizList();
+  if(page==='quiz') renderQuizPage();
 }
 
 /* ========== SETTINGS APPLY ========== */
@@ -809,13 +1005,6 @@ function applySettings(){
   document.getElementById('footerPhone').textContent = '📱 '+s.phone;
   document.getElementById('footerEmail').textContent = '✉️ '+s.email;
   document.getElementById('footerAddress').textContent = '📍 '+s.address;
-  if(s.emblem){
-    const emb = document.getElementById('headerEmblem');
-    const img = document.createElementNS('http://www.w3.org/2000/svg','image');
-    img.setAttribute('href', s.emblem);
-    img.setAttribute('width','100');img.setAttribute('height','100');
-    emb.innerHTML = '';emb.appendChild(img);
-  }
   document.getElementById('setTitle').value = s.title;
   document.getElementById('setPhone').value = s.phone;
   document.getElementById('setEmail').value = s.email;
@@ -826,7 +1015,7 @@ function applySettings(){
   document.getElementById('setPass').value = s.password;
 }
 
-/* ========== SLOKA ROTATION ========== */
+/* ========== SLOKA ========== */
 let slokaIdx = 0;
 function renderSloka(){
   if(!DB.slokas.length) return;
@@ -839,10 +1028,7 @@ function renderSloka(){
   `;
 }
 setInterval(()=>{slokaIdx++;renderSloka();}, 15000);
-
-function playSlokaAudio(){
-  toast('🔊 Playing sloka audio...');
-}
+function playSlokaAudio(){toast('🔊 Playing sloka audio...');}
 
 /* ========== EVENTS ========== */
 function renderEvents(){
@@ -853,18 +1039,14 @@ function renderEvents(){
   document.getElementById('pastEvents').innerHTML = past.length ? past.map(eventCard).join('') : '<p class="text-center" style="grid-column:1/-1;color:#999">No past events</p>';
   document.getElementById('homeEvents').innerHTML = upcoming.slice(0,3).map(eventCard).join('') || '<p class="text-center" style="grid-column:1/-1;color:#999">No upcoming events</p>';
 }
-
 function eventCard(e){
   const img = e.poster ? `<img src="${e.poster}" class="event-img" onerror="this.style.display='none'">` : `<div class="event-img" style="display:flex;align-items:center;justify-content:center;color:#fff;font-size:3rem">🎉</div>`;
-  return `<div class="event-card">
-    ${img}
-    <div class="event-body">
+  return `<div class="event-card">${img}<div class="event-body">
       <div class="event-date">📅 ${e.start} → ${e.end}</div>
       <h3>${e.title}</h3>
       <p>📍 ${e.location||'ISKCON Lakhimpur'}</p>
       <p>${e.desc||''}</p>
-    </div>
-  </div>`;
+    </div></div>`;
 }
 
 /* ========== MEDIA ========== */
@@ -881,7 +1063,7 @@ function renderPublicMedia(){
   }).join('');
 }
 
-/* ========== JAPA MALA ========== */
+/* ========== JAPA ========== */
 let bead=parseInt(localStorage.getItem('iskcon_beads')||'0');
 let rounds=parseInt(localStorage.getItem('iskcon_rounds')||'0');
 function updateMala(){
@@ -897,7 +1079,7 @@ function tapBead(){
   updateMala();
 }
 function resetMala(){
-  if(confirm('Reset japa counter to zero?')){
+  if(confirm('Reset japa counter?')){
     bead=0;rounds=0;
     localStorage.setItem('iskcon_beads',0);
     localStorage.setItem('iskcon_rounds',0);
@@ -905,24 +1087,176 @@ function resetMala(){
   }
 }
 
-/* ========== QUIZ ========== */
-let currentQuiz=[], currentQ=0, currentScore=0, currentName='', timerInterval, timeLeft=30, answered=false;
+/* ========== QUIZ SCHEDULE LOGIC ========== */
+function isQuizAvailable(){
+  const s = DB.quizSchedule;
+  if(!s.published) return {available:false, reason:'not_published'};
+  if(s.window === 'unlimited') return {available:true};
 
-function renderQuizList(){
-  const c = document.getElementById('quizList');
-  const published = DB.quiz.filter(q=>q.published);
-  if(!published.length){
-    c.innerHTML = '<p style="color:#999;padding:20px">No published quizzes yet. Admin can add via Admin Panel.</p>';
-    return;
+  const today = new Date().toISOString().split('T')[0];
+  if(s.window === 'day'){
+    if(today === s.date) return {available:true};
+    if(today < s.date) return {available:false, reason:'not_yet', date:s.date};
+    return {available:false, reason:'expired', date:s.date};
   }
-  c.innerHTML = `<h4 style="margin:20px 0 10px">Available Quizzes:</h4>` +
-    published.map((q,i)=>`<button class="btn btn-primary" style="margin:5px" onclick="startQuiz(${DB.quiz.indexOf(q)})">${q.title} (${q.questions.length} Q)</button>`).join('');
+  if(s.window === 'week'){
+    const start = new Date(s.date);
+    const end = new Date(start.getTime() + 7*24*60*60*1000);
+    const now = new Date();
+    if(now < start) return {available:false, reason:'not_yet', date:s.date};
+    if(now > end) return {available:false, reason:'expired', date:s.date};
+    return {available:true};
+  }
+  return {available:true};
 }
 
-function startQuiz(idx){
+function hasDeviceAttempted(){
+  const deviceId = getDeviceId();
+  return DB.results.some(r => r.deviceId === deviceId);
+}
+
+function getDeviceResult(){
+  const deviceId = getDeviceId();
+  return DB.results.find(r => r.deviceId === deviceId);
+}
+
+/* ========== QUIZ PAGE RENDER ========== */
+function renderQuizPage(){
+  const container = document.getElementById('quizContainer');
+  const avail = isQuizAvailable();
+  const schedule = DB.quizSchedule;
+
+  // 1. Quiz not published
+  if(!schedule.published){
+    container.innerHTML = `
+      <div class="quiz-notice">
+        <div class="icon">📢</div>
+        <h3>Quiz Not Available Yet</h3>
+        <p>The quiz has not been published by the admin. Please check back later.</p>
+      </div>`;
+    return;
+  }
+
+  // 2. Quiz not yet started
+  if(!avail.available && avail.reason === 'not_yet'){
+    const targetDate = new Date(avail.date + 'T00:00:00');
+    const daysLeft = Math.ceil((targetDate - new Date()) / (1000*60*60*24));
+    container.innerHTML = `
+      <div class="quiz-notice">
+        <div class="icon">⏳</div>
+        <h3>Quiz Not Started Yet</h3>
+        <p>This quiz will be available on:</p>
+        <div class="date-badge">📅 ${formatDate(avail.date)}</div>
+        <p><strong>${daysLeft} day(s) remaining</strong></p>
+        <p style="margin-top:15px;font-size:0.85rem;color:#666">Please come back on the scheduled date to attempt the quiz.</p>
+      </div>`;
+    return;
+  }
+
+  // 3. Quiz expired
+  if(!avail.available && avail.reason === 'expired'){
+    container.innerHTML = `
+      <div class="quiz-locked">
+        <div class="icon">🔒</div>
+        <h3>Quiz Window Closed</h3>
+        <p>The quiz was scheduled for <strong>${formatDate(avail.date)}</strong> and the time window has now expired.</p>
+        <p style="margin-top:15px">Contact admin for more information.</p>
+      </div>`;
+    return;
+  }
+
+  // 4. Check if device already attempted (one attempt per device)
+  const deviceResult = getDeviceResult();
+  if(deviceResult){
+    const statusBadge = deviceResult.status === 'approved'
+      ? '<span class="badge badge-approved">✅ Approved on Leaderboard</span>'
+      : deviceResult.status === 'rejected'
+        ? '<span class="badge badge-rejected">❌ Rejected</span>'
+        : '<span class="badge badge-pending">⏳ Pending Admin Approval</span>';
+
+    container.innerHTML = `
+      <div class="quiz-locked">
+        <div class="icon">🔐</div>
+        <h3>You Have Already Attempted This Quiz</h3>
+        <p>Only one attempt is allowed per device.</p>
+        <div class="card mt-20" style="background:#fff8e6;max-width:400px;margin:20px auto;text-align:left">
+          <p><strong>Name:</strong> ${deviceResult.name}</p>
+          <p><strong>Score:</strong> ${deviceResult.score} / ${deviceResult.total} (${deviceResult.pct}%)</p>
+          <p><strong>Date:</strong> ${deviceResult.date}</p>
+          <p style="margin-top:10px"><strong>Status:</strong> ${statusBadge}</p>
+        </div>
+        <p style="margin-top:15px;font-size:0.85rem;color:#666">
+          ${deviceResult.status === 'pending'
+            ? 'Your result is awaiting admin approval. Once approved, it will appear on the public leaderboard.'
+            : deviceResult.status === 'approved'
+              ? 'Your name is visible on the public leaderboard. Congratulations! 🎉'
+              : 'Your result was not approved by admin.'}
+        </p>
+      </div>`;
+    return;
+  }
+
+  // 5. Quiz available — show schedule + start button
+  const schedInfo = schedule.window === 'day'
+    ? `Available only on <strong>${formatDate(schedule.date)}</strong>`
+    : schedule.window === 'week'
+      ? `Available from <strong>${formatDate(schedule.date)}</strong> for 7 days`
+      : 'Always available';
+
+  container.innerHTML = `
+    <div class="schedule-card">
+      <h3>📅 Quiz Schedule</h3>
+      <div class="big-date">${schedule.title}</div>
+      <p>${schedInfo}</p>
+      <div class="countdown">📝 ${DB.quiz[DB.quiz.length-1]?.questions.length || 0} Questions • ⏱ 30s each</div>
+    </div>
+
+    <div id="quizStart">
+      <div class="card text-center">
+        <div class="card-icon">🏆</div>
+        <h3>Test Your Spiritual Knowledge</h3>
+        <p class="mb-20">Answer questions and receive an instant score. Your result will be shown on the leaderboard only after admin approval.</p>
+        <div class="form-group" style="max-width:400px;margin:0 auto 15px">
+          <input type="text" id="quizName" placeholder="Enter your full name" required>
+        </div>
+        <button class="btn btn-primary" onclick="startQuiz()">🚀 Start Quiz</button>
+      </div>
+    </div>
+
+    <div id="quizPlay" class="hidden">
+      <div class="quiz-box">
+        <div class="quiz-header">
+          <div><strong id="qCounter">Question 1 of 10</strong></div>
+          <div class="timer" id="timer">⏱ 30s</div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:10%"></div></div>
+        <div class="question" id="qText"></div>
+        <div class="options" id="qOptions"></div>
+        <div id="qExplanation" class="explanation hidden"></div>
+        <div class="text-center mt-20">
+          <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="quizResult" class="hidden"></div>
+  `;
+}
+
+function formatDate(d){
+  if(!d) return '';
+  const dt = new Date(d + 'T00:00:00');
+  return dt.toLocaleDateString('en-IN', {day:'numeric', month:'long', year:'numeric'});
+}
+
+/* ========== QUIZ LOGIC ========== */
+let currentQuiz=[], currentQ=0, currentScore=0, currentName='', timerInterval, timeLeft=30, answered=false;
+
+function startQuiz(){
   currentName = document.getElementById('quizName').value.trim();
   if(!currentName){toast('⚠️ Please enter your name');return;}
-  const quiz = DB.quiz[idx];
+  const quiz = DB.quiz[DB.quiz.length-1];
+  if(!quiz || !quiz.questions.length){toast('⚠️ No quiz questions available');return;}
   currentQuiz = quiz.questions;
   currentQ = 0; currentScore = 0;
   document.getElementById('quizStart').classList.add('hidden');
@@ -940,7 +1274,6 @@ function renderQuestion(){
   document.getElementById('qOptions').innerHTML = q.options.map((o,i)=>`<div class="option" onclick="selectOption(${i})">${String.fromCharCode(65+i)}. ${o}</div>`).join('');
   document.getElementById('qExplanation').classList.add('hidden');
   document.getElementById('nextBtn').textContent = currentQ===currentQuiz.length-1 ? 'Finish ✓' : 'Next →';
-  document.getElementById('nextBtn').disabled = false;
   startTimer();
 }
 
@@ -960,8 +1293,7 @@ function selectOption(i){
   answered = true;
   clearInterval(timerInterval);
   const q = currentQuiz[currentQ];
-  const options = document.querySelectorAll('#qOptions .option');
-  options.forEach((o,idx)=>{
+  document.querySelectorAll('#qOptions .option').forEach((o,idx)=>{
     if(idx===q.correct) o.classList.add('correct');
     else if(idx===i) o.classList.add('wrong');
   });
@@ -977,9 +1309,8 @@ function autoNext(){
   document.querySelectorAll('#qOptions .option').forEach((o,idx)=>{
     if(idx===q.correct) o.classList.add('correct');
   });
-  const exp = document.getElementById('qExplanation');
-  exp.textContent = '⏰ Time up! Correct: '+String.fromCharCode(65+q.correct);
-  exp.classList.remove('hidden');
+  document.getElementById('qExplanation').textContent = '⏰ Time up! Correct: '+String.fromCharCode(65+q.correct);
+  document.getElementById('qExplanation').classList.remove('hidden');
 }
 
 function nextQuestion(){
@@ -995,39 +1326,54 @@ function finishQuiz(){
   const result = document.getElementById('quizResult');
   result.classList.remove('hidden');
   const pct = Math.round(currentScore/currentQuiz.length*100);
-  const date = new Date().toLocaleDateString();
-  DB.toppers.push({name:currentName, score:currentScore, total:currentQuiz.length, pct, date});
-  DB.toppers.sort((a,b)=>b.pct-a.pct);
+  const date = new Date().toLocaleDateString('en-IN');
+  const deviceId = getDeviceId();
+
+  // Save to results as PENDING
+  DB.results.push({
+    name: currentName,
+    score: currentScore,
+    total: currentQuiz.length,
+    pct,
+    date,
+    deviceId,
+    status: 'pending',
+    timestamp: Date.now()
+  });
   save();
+
   result.innerHTML = `
     <div class="certificate">
-      <h2>🏆 Certificate of Spiritual Achievement</h2>
-      <p style="color:#666">This certifies that</p>
+      <h2>🏆 Quiz Complete!</h2>
+      <p style="color:#666">Great job,</p>
       <div class="name">${currentName}</div>
-      <p style="color:#666">has successfully completed the Bhagavad Gita Quiz</p>
       <div class="score">${currentScore} / ${currentQuiz.length}</div>
       <p style="font-size:1.2rem;color:var(--maroon);font-weight:600">${pct}% Score</p>
       <p style="margin-top:15px;color:#666;font-size:0.9rem">Date: ${date}</p>
+      <div style="background:#fff3cd;border:2px solid #ffc107;border-radius:12px;padding:15px;margin-top:20px;max-width:500px;margin-left:auto;margin-right:auto">
+        <p style="color:#856404;font-weight:600">⏳ Awaiting Admin Approval</p>
+        <p style="color:#856404;font-size:0.85rem;margin-top:5px">
+          Your result has been submitted. Once the admin reviews and approves it, your name will appear on the public leaderboard.
+        </p>
+      </div>
       <p style="margin-top:20px;font-style:italic;color:var(--deep-saffron)">"Always remember Me and you will surely come to Me." - BG 8.7</p>
       <div class="mt-20">
         <button class="btn btn-primary" onclick="window.print()">🖨️ Print Certificate</button>
-        <button class="btn btn-outline" style="color:var(--maroon);border-color:var(--maroon)" onclick="restartQuiz()">🔄 Take Again</button>
+        <button class="btn btn-outline" style="color:var(--maroon);border-color:var(--maroon)" onclick="showPage('leaderboard')">🏆 View Leaderboard</button>
       </div>
     </div>
   `;
 }
 
-function restartQuiz(){
-  document.getElementById('quizResult').classList.add('hidden');
-  document.getElementById('quizStart').classList.remove('hidden');
-  renderQuizList();
-}
-
-/* ========== LEADERBOARD ========== */
+/* ========== LEADERBOARD (public — only approved) ========== */
 function renderLeaderboard(){
   const body = document.getElementById('leaderboardBody');
-  if(!DB.toppers.length){body.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#999;padding:30px">No quiz attempts yet. Be the first!</td></tr>';return;}
-  body.innerHTML = DB.toppers.slice(0,20).map((t,i)=>{
+  const approved = DB.results.filter(r=>r.status==='approved').sort((a,b)=>b.pct-a.pct || a.timestamp-b.timestamp);
+  if(!approved.length){
+    body.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#999;padding:30px">No approved results yet. Admin will publish soon!</td></tr>';
+    return;
+  }
+  body.innerHTML = approved.slice(0,20).map((t,i)=>{
     const medal = i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+(i+1);
     return `<tr><td><strong>${medal}</strong></td><td>${t.name}</td><td><strong>${t.score}/${t.total}</strong> (${t.pct}%)</td><td>${t.date}</td></tr>`;
   }).join('');
@@ -1035,8 +1381,7 @@ function renderLeaderboard(){
 
 /* ========== SEVA MODAL ========== */
 function openSeva(){
-  const modal = document.getElementById('sevaModal');
-  modal.classList.add('active');
+  document.getElementById('sevaModal').classList.add('active');
   document.getElementById('sevaOptions').innerHTML = `
     <button class="option" onclick="showSevaDetail('Anna Daan Seva','🍛','Feed devotees and guests with sanctified prasadam')">🍛 Anna Daan Seva</button>
     <button class="option" onclick="showSevaDetail('Nitya Seva','🕉️','Support daily temple worship and maintenance')">🕉️ Nitya Seva</button>
@@ -1066,7 +1411,7 @@ function showSevaDetail(title, icon, desc){
 }
 document.getElementById('sevaModal').addEventListener('click',e=>{if(e.target.id==='sevaModal')closeSeva();});
 
-/* ========== KIRTAN PLAYER ========== */
+/* ========== KIRTAN ========== */
 function startKirtan(){
   document.getElementById('audioBar').classList.add('active');
   toast('🎵 Hare Krishna Mahamantra playing');
@@ -1075,23 +1420,17 @@ function togglePlay(){
   const btn = document.getElementById('playBtn');
   btn.textContent = btn.textContent==='⏸'?'▶':'⏸';
 }
-function stopKirtan(){
-  document.getElementById('audioBar').classList.remove('active');
-}
+function stopKirtan(){document.getElementById('audioBar').classList.remove('active');}
 
 /* ========== ADMIN ========== */
-let adminAuthed = false;
 function adminLogin(){
   const pass = document.getElementById('adminPass').value;
   if(pass === DB.settings.password){
-    adminAuthed = true;
     document.getElementById('adminLogin').classList.add('hidden');
     document.getElementById('adminContent').classList.remove('hidden');
     renderAdminAll();
     toast('✅ Logged in successfully');
-  }else{
-    toast('❌ Wrong password');
-  }
+  }else{toast('❌ Wrong password');}
 }
 
 function switchAdminTab(tab, btn){
@@ -1102,23 +1441,28 @@ function switchAdminTab(tab, btn){
   if(tab==='overview') renderStats();
   if(tab==='media') renderAdminMedia();
   if(tab==='events') renderAdminEvents();
-  if(tab==='quiz') renderAdminQuiz();
+  if(tab==='quiz') loadQuizAdmin();
+  if(tab==='results') renderResultsAdmin();
   if(tab==='sloka') renderAdminSloka();
   if(tab==='seva') loadSevaForm();
 }
 
 function renderStats(){
+  const pending = DB.results.filter(r=>r.status==='pending').length;
+  const approved = DB.results.filter(r=>r.status==='approved').length;
   document.getElementById('statsGrid').innerHTML = `
     <div class="stat-card"><div class="num">${DB.photos.length}</div><div class="lbl">📸 Photos</div></div>
     <div class="stat-card green"><div class="num">${DB.videos.length}</div><div class="lbl">🎬 Videos</div></div>
     <div class="stat-card blue"><div class="num">${DB.events.length}</div><div class="lbl">🎉 Events</div></div>
     <div class="stat-card purple"><div class="num">${DB.quiz.reduce((a,q)=>a+q.questions.length,0)}</div><div class="lbl">🧠 Quiz Qs</div></div>
     <div class="stat-card red"><div class="num">${DB.slokas.length}</div><div class="lbl">📜 Slokas</div></div>
-    <div class="stat-card"><div class="num">${DB.toppers.length}</div><div class="lbl">🏆 Attempts</div></div>
+    <div class="stat-card" style="background:linear-gradient(135deg,#f59e0b,#d97706)"><div class="num">${pending}</div><div class="lbl">⏳ Pending</div></div>
+    <div class="stat-card green"><div class="num">${approved}</div><div class="lbl">✅ Approved</div></div>
   `;
-  document.getElementById('adminToppers').innerHTML = DB.toppers.slice(0,5).map(t=>
+  const approvedList = DB.results.filter(r=>r.status==='approved').sort((a,b)=>b.pct-a.pct);
+  document.getElementById('adminToppers').innerHTML = approvedList.slice(0,5).map(t=>
     `<tr><td>${t.name}</td><td>${t.score}/${t.total} (${t.pct}%)</td><td>${t.date}</td></tr>`
-  ).join('') || '<tr><td colspan="3" style="text-align:center;color:#999">No attempts yet</td></tr>';
+  ).join('') || '<tr><td colspan="3" style="text-align:center;color:#999">No approved results</td></tr>';
 }
 
 function saveSettings(){
@@ -1134,6 +1478,7 @@ function saveSettings(){
   toast('✅ Settings saved');
 }
 
+/* MEDIA ADMIN */
 let tempPhotoData = '';
 function handlePhotoUpload(e){
   const f = e.target.files[0];
@@ -1169,11 +1514,7 @@ function addVideo(){
     else if(url.includes('embed/')) vid = url.split('embed/')[1].split('?')[0];
     else vid = url;
   }catch(e){vid=url;}
-  DB.videos.push({
-    type:'video', videoId:vid, url,
-    caption: document.getElementById('videoCaption').value,
-    published: true
-  });
+  DB.videos.push({type:'video', videoId:vid, url, caption: document.getElementById('videoCaption').value, published: true});
   save();
   document.getElementById('videoUrl').value='';
   document.getElementById('videoCaption').value='';
@@ -1207,6 +1548,7 @@ function deleteMedia(kind, idx){
   toast('🗑️ Deleted');
 }
 
+/* EVENTS ADMIN */
 function addEvent(){
   const e = {
     title: document.getElementById('evtTitle').value,
@@ -1218,12 +1560,7 @@ function addEvent(){
   };
   if(!e.title || !e.start){toast('⚠️ Title & start date required');return;}
   DB.events.push(e); save();
-  document.getElementById('evtTitle').value='';
-  document.getElementById('evtPoster').value='';
-  document.getElementById('evtStart').value='';
-  document.getElementById('evtEnd').value='';
-  document.getElementById('evtLocation').value='';
-  document.getElementById('evtDesc').value='';
+  ['evtTitle','evtPoster','evtStart','evtEnd','evtLocation','evtDesc'].forEach(id=>document.getElementById(id).value='');
   renderAdminEvents(); renderEvents();
   toast('✅ Event created');
 }
@@ -1245,6 +1582,46 @@ function deleteEvent(i){
 
 /* QUIZ ADMIN */
 let draftQuiz = {title:'', questions:[]};
+
+function loadQuizAdmin(){
+  const s = DB.quizSchedule;
+  document.getElementById('quizTitleInput').value = s.title || '';
+  document.getElementById('quizDateInput').value = s.date || '';
+  document.getElementById('quizWindowInput').value = s.window || 'unlimited';
+  document.getElementById('quizReattemptInput').value = s.reattempt || 'no';
+
+  // Show current schedule
+  let info = '';
+  if(s.published){
+    const avail = isQuizAvailable();
+    info = `
+      <div style="background:#fff;padding:15px;border-radius:10px;border-left:4px solid var(--green)">
+        <p><strong>Current Schedule:</strong> ${s.title}</p>
+        <p><strong>Date:</strong> ${formatDate(s.date)}</p>
+        <p><strong>Window:</strong> ${s.window === 'day' ? 'Only on that day' : s.window === 'week' ? '7 days from date' : 'Always open'}</p>
+        <p><strong>Re-attempt:</strong> ${s.reattempt === 'yes' ? 'Allowed' : 'One attempt per device'}</p>
+        <p><strong>Status:</strong> ${avail.available ? '🟢 Currently Available' : '🔴 Not Available'}</p>
+        <p style="margin-top:8px"><strong>Questions Loaded:</strong> ${DB.quiz[DB.quiz.length-1]?.questions.length || 0}</p>
+      </div>
+    `;
+  }else{
+    info = '<p style="color:#999">No quiz published yet.</p>';
+  }
+  document.getElementById('currentScheduleInfo').innerHTML = info;
+
+  renderAdminQuiz();
+}
+
+function saveQuizSchedule(){
+  DB.quizSchedule.title = document.getElementById('quizTitleInput').value || 'Quiz';
+  DB.quizSchedule.date = document.getElementById('quizDateInput').value || new Date().toISOString().split('T')[0];
+  DB.quizSchedule.window = document.getElementById('quizWindowInput').value;
+  DB.quizSchedule.reattempt = document.getElementById('quizReattemptInput').value;
+  save();
+  loadQuizAdmin();
+  toast('✅ Quiz schedule saved');
+}
+
 function generateAIQuiz(){
   const key = document.getElementById('geminiKey').value.trim();
   const topic = document.getElementById('aiTopic').value.trim() || 'Bhagavad Gita';
@@ -1286,7 +1663,6 @@ function addManualQuestion(){
     explanation: document.getElementById('mqExp').value
   };
   if(!q.q || q.options.some(o=>!o)){toast('⚠️ Fill question & all 4 options');return;}
-  if(!draftQuiz.title) draftQuiz.title = document.getElementById('mqTitle').value || 'Custom Quiz';
   draftQuiz.questions.push(q);
   ['mqQ','mqA','mqB','mqC','mqD','mqExp'].forEach(id=>document.getElementById(id).value='');
   renderAdminQuiz();
@@ -1304,17 +1680,114 @@ function renderAdminQuiz(){
         <small style="color:#666">💡 ${q.explanation||''}</small><br>
         <button class="btn-sm btn-danger mt-20" onclick="deleteQuizQ(${i})">Delete</button>
       </div>
-    `).join('') : '<p style="color:#999">No questions yet</p>';
+    `).join('') : '<p style="color:#999">No draft questions yet</p>';
 }
 function deleteQuizQ(i){draftQuiz.questions.splice(i,1);renderAdminQuiz();}
 function publishQuiz(){
-  if(!draftQuiz.title || !draftQuiz.questions.length){toast('⚠️ Add title & questions');return;}
-  DB.quiz.push({title:draftQuiz.title, questions:[...draftQuiz.questions], published:true});
+  if(!draftQuiz.questions.length){
+    // If no draft, check if existing quiz exists
+    if(DB.quiz.length && DB.quiz[DB.quiz.length-1].questions.length){
+      DB.quizSchedule.published = true;
+      save();
+      toast('🚀 Quiz published with existing questions!');
+      loadQuizAdmin();
+      return;
+    }
+    toast('⚠️ Add some questions first');
+    return;
+  }
+  // Save/update the last quiz with new questions
+  if(DB.quiz.length){
+    DB.quiz[DB.quiz.length-1].questions = [...draftQuiz.questions];
+    DB.quiz[DB.quiz.length-1].title = DB.quizSchedule.title;
+  }else{
+    DB.quiz.push({
+      title: DB.quizSchedule.title,
+      questions: [...draftQuiz.questions],
+      published: true
+    });
+  }
+  DB.quizSchedule.published = true;
   save();
   draftQuiz = {title:'', questions:[]};
-  document.getElementById('mqTitle').value='';
   renderAdminQuiz();
-  toast('🚀 Quiz published!');
+  loadQuizAdmin();
+  toast('🚀 Quiz published! Students can now attempt.');
+}
+
+/* RESULTS ADMIN (Approve/Reject) */
+function renderResultsAdmin(){
+  const pending = DB.results.filter(r=>r.status==='pending');
+  const approved = DB.results.filter(r=>r.status==='approved');
+  const rejected = DB.results.filter(r=>r.status==='rejected');
+
+  document.getElementById('pendingCount').textContent = pending.length;
+  document.getElementById('approvedCount').textContent = approved.length;
+  document.getElementById('rejectedCount').textContent = rejected.length;
+
+  document.getElementById('pendingResultsBody').innerHTML = pending.length ? pending.map(r=>`
+    <tr>
+      <td>${r.name}</td>
+      <td><strong>${r.score}/${r.total}</strong> (${r.pct}%)</td>
+      <td>${r.date}</td>
+      <td><code style="font-size:0.75rem;background:#f0f0f0;padding:2px 6px;border-radius:4px">${r.deviceId.slice(0,18)}...</code></td>
+      <td>
+        <button class="btn-sm btn-success" onclick="approveResult('${r.deviceId}')">✅ Approve</button>
+        <button class="btn-sm btn-danger" onclick="rejectResult('${r.deviceId}')">❌ Reject</button>
+      </td>
+    </tr>
+  `).join('') : '<tr><td colspan="5" style="text-align:center;color:#999;padding:20px">No pending results</td></tr>';
+
+  document.getElementById('approvedResultsBody').innerHTML = approved.length ? approved.map(r=>`
+    <tr>
+      <td>${r.name}</td>
+      <td><strong>${r.score}/${r.total}</strong> (${r.pct}%)</td>
+      <td>${r.date}</td>
+      <td>
+        <button class="btn-sm btn-warn" onclick="rejectResult('${r.deviceId}')">❌ Reject</button>
+        <button class="btn-sm btn-danger" onclick="deleteResult('${r.deviceId}')">🗑️</button>
+      </td>
+    </tr>
+  `).join('') : '<tr><td colspan="4" style="text-align:center;color:#999;padding:20px">No approved results</td></tr>';
+
+  document.getElementById('rejectedResultsBody').innerHTML = rejected.length ? rejected.map(r=>`
+    <tr>
+      <td>${r.name}</td>
+      <td><strong>${r.score}/${r.total}</strong> (${r.pct}%)</td>
+      <td>${r.date}</td>
+      <td>
+        <button class="btn-sm btn-success" onclick="approveResult('${r.deviceId}')">✅ Approve</button>
+        <button class="btn-sm btn-danger" onclick="deleteResult('${r.deviceId}')">🗑️</button>
+      </td>
+    </tr>
+  `).join('') : '<tr><td colspan="4" style="text-align:center;color:#999;padding:20px">No rejected results</td></tr>';
+}
+
+function approveResult(deviceId){
+  const r = DB.results.find(x=>x.deviceId===deviceId);
+  if(r){r.status='approved';save();renderResultsAdmin();renderStats();renderLeaderboard();toast('✅ Approved');}
+}
+function rejectResult(deviceId){
+  const r = DB.results.find(x=>x.deviceId===deviceId);
+  if(r){r.status='rejected';save();renderResultsAdmin();renderStats();renderLeaderboard();toast('❌ Rejected');}
+}
+function deleteResult(deviceId){
+  if(!confirm('Delete this result permanently?'))return;
+  DB.results = DB.results.filter(x=>x.deviceId!==deviceId);
+  save();renderResultsAdmin();renderStats();renderLeaderboard();
+  toast('🗑️ Deleted');
+}
+function approveAllPending(){
+  if(!confirm('Approve all pending results?'))return;
+  DB.results.forEach(r=>{if(r.status==='pending')r.status='approved';});
+  save();renderResultsAdmin();renderStats();renderLeaderboard();
+  toast('✅ All approved');
+}
+function clearAllResults(){
+  if(!confirm('⚠️ DELETE ALL quiz results? This cannot be undone!'))return;
+  DB.results = [];
+  save();renderResultsAdmin();renderStats();renderLeaderboard();
+  toast('🗑️ All results cleared');
 }
 
 /* SLOKA ADMIN */
@@ -1364,17 +1837,19 @@ function renderAdminAll(){
   renderStats();
   renderAdminMedia();
   renderAdminEvents();
-  renderAdminQuiz();
+  loadQuizAdmin();
+  renderResultsAdmin();
   renderAdminSloka();
 }
 
 /* ========== INIT ========== */
 window.addEventListener('load', ()=>{
+  getDeviceId(); // Ensure device ID exists
   applySettings();
   renderSloka();
   renderEvents();
   renderPublicMedia();
-  renderQuizList();
+  renderQuizPage();
   updateMala();
   // Seed a sample quiz if none exist
   if(!DB.quiz.length){
@@ -1389,10 +1864,15 @@ window.addEventListener('load', ()=>{
         {q:'What is the ultimate teaching of the Gita?', options:['Renounce everything','Surrender to God','Fight always','Avoid duties'], correct:1, explanation:'Surrender unto the Supreme Lord is the ultimate teaching - sarva dharman parityajya.'}
       ]
     });
-    save();
   }
+  // Default schedule
+  if(!DB.quizSchedule.title) DB.quizSchedule.title = 'Bhagavad Gita Basics';
+  if(!DB.quizSchedule.date) DB.quizSchedule.date = new Date().toISOString().split('T')[0];
+  if(!DB.quizSchedule.window) DB.quizSchedule.window = 'unlimited';
+  if(!DB.quizSchedule.reattempt) DB.quizSchedule.reattempt = 'no';
+  save();
   toast('🙏 Welcome to ISKCON Lakhimpur!');
 });
 </script>
 </body>
-  </html>
+        </html>
